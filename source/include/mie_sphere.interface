@@ -1,9 +1,0 @@
-Interface
-subroutine mie_sphere (x, m, q_sct, q_ext, g, q_bsct)
-use parkind1, only: jprb
-implicit none
-real    (kind=jprb), intent ( in) :: x
-complex (kind=jprb), intent ( in) :: m
-real    (kind=jprb), intent (out) :: q_sct, q_ext, g, q_bsct
-End Subroutine
-End Interface

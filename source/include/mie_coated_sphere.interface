@@ -1,9 +1,0 @@
-Interface
-subroutine mie_coated_sphere (x, y, m1, m2, q_sct, q_ext, g, q_bsct)
-use parkind1, only: jprb
-implicit none
-complex (kind=jprb), intent ( in) :: m1, m2
-real    (kind=jprb), intent ( in) :: x, y
-real    (kind=jprb), intent (out) :: q_sct, q_ext, g, q_bsct
-End Subroutine
-End Interface

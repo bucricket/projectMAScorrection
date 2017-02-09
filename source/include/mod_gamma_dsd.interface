@@ -1,8 +1,0 @@
-Interface
-subroutine mod_gamma_dsd (lwc, diameter, nr)
-use parkind1, only: jprb
-implicit none
-real (kind=jprb), intent ( in) :: lwc, diameter
-real (kind=jprb), intent (out) :: nr
-End Subroutine
-End Interface

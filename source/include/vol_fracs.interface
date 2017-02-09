@@ -1,8 +1,0 @@
-Interface
-subroutine vol_fracs (dense_ice, dense_air, dense_snow, fv_wat, fv_ice, fv_air)
-use parkind1, only: jprb
-implicit none
-real (kind=jprb), intent ( in) :: dense_ice, dense_air, dense_snow, fv_wat
-real (kind=jprb), intent (out) :: fv_ice, fv_air
-End Subroutine
-End Interface

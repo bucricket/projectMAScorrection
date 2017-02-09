@@ -1,9 +1,0 @@
-Interface
-SUBROUTINE rttov_init_prof(profiles, p)
-  USE parkind1, ONLY : jprb
-  USE rttov_types, ONLY : profile_type
-  IMPLICIT NONE
-  TYPE(profile_type), INTENT(INOUT)          :: profiles(:)
-  REAL(KIND=jprb),    INTENT(IN),   OPTIONAL :: p(:)
-End Subroutine
-End Interface

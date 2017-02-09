@@ -1,8 +1,0 @@
-Interface
- subroutine predict_mom07(m2,tc,n,m)
-  use parkind1, only: jprb
-  implicit none
-  real (kind=jprb), intent(inout) :: m2, m
-  real (kind=jprb), intent(in)    :: tc, n
-End Subroutine
-End Interface

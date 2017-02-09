@@ -1,8 +1,0 @@
-Interface
-SUBROUTINE rttov_init_transmission_aux(opts, transmission_aux)
-  USE rttov_types, ONLY : rttov_options, transmission_Type_aux
-  IMPLICIT NONE
-  TYPE(rttov_options),         INTENT(IN)    :: opts
-  TYPE(transmission_type_aux), INTENT(INOUT) :: transmission_aux
-End Subroutine
-End Interface

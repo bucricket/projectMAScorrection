@@ -1,8 +1,0 @@
-Interface
-subroutine liu_density (liu_habit, a, b, gamma)
-use parkind1, only: jprb, jpim
-implicit none
-integer (kind=jpim), intent ( in) :: liu_habit
-real    (kind=jprb), intent (out) :: a, b, gamma
-End Subroutine
-End Interface

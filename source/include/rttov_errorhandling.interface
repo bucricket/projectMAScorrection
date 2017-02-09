@@ -1,7 +1,0 @@
-Interface
-SUBROUTINE rttov_errorhandling(err_unit)
-  USE parkind1, ONLY : jpim
-  IMPLICIT NONE
-  INTEGER(jpim), INTENT(IN) :: err_unit       ! Logical error unit
-End Subroutine
-End Interface

@@ -1,8 +1,0 @@
-Interface
-subroutine convert_mietable(input_file, ext_tab, ssa_tab, asm_tab)
-use parkind1, only: jprb
-implicit none
-character(len=*), intent(in) :: input_file
-real (kind=jprb), dimension (:,:,:,:), intent(in) :: ext_tab, ssa_tab, asm_tab
-End Subroutine
-End Interface

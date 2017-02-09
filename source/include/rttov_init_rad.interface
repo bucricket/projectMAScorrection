@@ -1,8 +1,0 @@
-Interface
-SUBROUTINE rttov_init_rad(rad, rad2)
-  USE rttov_types, ONLY : radiance_type, radiance2_type
-  IMPLICIT NONE
-  TYPE(radiance_type),  INTENT(INOUT)           :: rad
-  TYPE(radiance2_type), INTENT(INOUT), OPTIONAL :: rad2
-End Subroutine
-End Interface

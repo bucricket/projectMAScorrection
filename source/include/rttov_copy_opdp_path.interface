@@ -1,9 +1,0 @@
-Interface
-SUBROUTINE rttov_copy_opdp_path(opts, opdp_pathA, opdp_pathB)
-  USE rttov_types, ONLY : rttov_options, opdp_path_Type
-  IMPLICIT NONE
-  TYPE(rttov_options),  INTENT(IN)    :: opts
-  TYPE(opdp_path_Type), INTENT(INOUT) :: opdp_pathA
-  TYPE(opdp_path_Type), INTENT(IN)    :: opdp_pathB
-End Subroutine
-End Interface

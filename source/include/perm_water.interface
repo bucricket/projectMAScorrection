@@ -1,8 +1,0 @@
-Interface
-subroutine perm_water (f_ghz, t_k, perm_re, perm_im)
-use parkind1, only: jprb
-implicit none
-real (kind=jprb), intent ( in) :: f_ghz, t_k
-real (kind=jprb), intent (out) :: perm_re, perm_im
-End Subroutine
-End Interface

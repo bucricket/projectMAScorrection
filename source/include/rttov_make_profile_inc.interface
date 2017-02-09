@@ -1,9 +1,0 @@
-Interface
-SUBROUTINE rttov_make_profile_inc(profiles_inc, profiles, opts)
-  USE rttov_types, ONLY : profile_Type, rttov_options
-  IMPLICIT NONE
-  TYPE(profile_type),  INTENT(INOUT) :: profiles_inc(:)
-  TYPE(profile_type),  INTENT(IN)    :: profiles    (:)
-  TYPE(rttov_options), INTENT(IN)    :: opts
-End Subroutine
-End Interface
