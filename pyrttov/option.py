@@ -12,7 +12,7 @@ the Met Office, ECMWF, KNMI and MeteoFrance.
 
 from __future__ import absolute_import, print_function
 import collections
-from pyrttov.decorator import add_descriptors_opts, lock_attributes
+from .decorator import add_descriptors_opts, lock_attributes
 
 (BAND1, BAND2, BAND3) = range(1, 4)
 (INDEX1, INDEX2, INDEX3, INDEX4) = range(1, 5)

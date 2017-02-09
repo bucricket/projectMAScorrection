@@ -18,14 +18,14 @@ import numpy as np
 
 import rttov_wrapper_f2py as rtwrap
 
-from pyrttov.option import Options
-from pyrttov.profile import Profiles
-from pyrttov.profile import ItemDescriptorNaming as _ItemDescriptorNaming
-from pyrttov.decorator import property_ro, lock_attributes, add_descriptors_gasesK
-from pyrttov.descriptor import FilepathDescriptorRWD as _FPathDescRWD
-from pyrttov.descriptor import DirpathDescriptorRWD as _DPathDescRWD
-from pyrttov.descriptor import GenericDescriptorRO as _DescRO
-from pyrttov.rttype import wrapfloat, wrapint, itemIdType
+from .option import Options
+from .profile import Profiles
+from .profile import ItemDescriptorNaming as _ItemDescriptorNaming
+from .decorator import property_ro, lock_attributes, add_descriptors_gasesK
+from .descriptor import FilepathDescriptorRWD as _FPathDescRWD
+from .descriptor import DirpathDescriptorRWD as _DPathDescRWD
+from .descriptor import GenericDescriptorRO as _DescRO
+from .rttype import wrapfloat, wrapint, itemIdType
 
 
 # No automatic exports

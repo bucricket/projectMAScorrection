@@ -14,9 +14,9 @@ This module defines various decorators that ease the class creation.
 
 from __future__ import absolute_import, print_function
 from copy import deepcopy
-from pyrttov.descriptor import GenericDescriptorRO
-from pyrttov.descriptor import TypedDescriptorRW, VerticalProfilesRWD
-from pyrttov.descriptor import PickGasesRO
+from .descriptor import GenericDescriptorRO
+from .descriptor import TypedDescriptorRW, VerticalProfilesRWD
+from .descriptor import PickGasesRO
 
 
 def property_ro(func):

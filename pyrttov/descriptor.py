@@ -16,7 +16,7 @@ to the Options, Profiles and Rttov classes attributes.
 from __future__ import absolute_import, print_function
 import os
 import numpy as np
-from pyrttov.rttype import wrapfloat
+from .rttype import wrapfloat
 
 
 class GenericDescriptorRO(object):

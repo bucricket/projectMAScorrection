@@ -14,12 +14,12 @@ from __future__ import absolute_import, print_function
 import numpy as np
 from pprint import pformat
 
-from pyrttov.rttype import wrapint, wrapfloat, itemIdType, gasUnitType
-from pyrttov.decorator import add_descriptors_gases2D
-from pyrttov.decorator import property_ro, lock_attributes
-from pyrttov.descriptor import TypedDescriptorRW
-from pyrttov.descriptor import ArbitraryProfilesRW, ArbitraryProfilesRWD
-from pyrttov.descriptor import VerticalProfilesRW, VerticalProfilesRWD
+from .rttype import wrapint, wrapfloat, itemIdType, gasUnitType
+from .decorator import add_descriptors_gases2D
+from .decorator import property_ro, lock_attributes
+from .descriptor import TypedDescriptorRW
+from .descriptor import ArbitraryProfilesRW, ArbitraryProfilesRWD
+from .descriptor import VerticalProfilesRW, VerticalProfilesRWD
 
 
 # Gives the mapping between gas_id / (descriptor name, full description)
