@@ -14,13 +14,14 @@ srcDir = os.path.join(processDir,'source','src')
 #=====write Makefile.local===========
 makeFilename = os.path.join(processDir,'source','build',"Makefile.local")
 
-hdfFolder = [i for i in os.listdir(libDir) if os.path.isdir(os.path.join(libDir,i)) and \
-         'hdf5' in i]
-hdfPath = os.path.join(libDir,hdfFolder[0])
+#hdfFolder = [i for i in os.listdir(libDir) if os.path.isdir(os.path.join(libDir,i)) and \
+#         'hdf5' in i]
+#
+#hdfPath = os.path.join(libDir,hdfFolder[0])
 
 file = open(makeFilename,"w") 
  
-file.write("HDF5_PREFIX  = %s" % hdfPath) 
+file.write("HDF5_PREFIX  = %s" % libDir) 
 file.write("FFLAGS_HDF5  = -D_RTTOV_HDF $(FFLAG_MOD)$(HDF5_PREFIX)/include") 
 file.write("LDFLAGS_HDF5 = -L$(HDF5_PREFIX)/lib -lhdf5hl_fortran -lhdf5_hl -lhdf5_fortran -lhdf5") 
 file.write("FFLAGS_EXTERN  = $(FFLAGS_NETCDF)  $(FFLAGS_HDF5)  $(FFLAGS_DRHOOK)") 
