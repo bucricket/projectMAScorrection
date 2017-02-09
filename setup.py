@@ -4,7 +4,7 @@ import os
 
 try:
     from setuptools import setup
-    setup_kwargs = {'entry_points': {'console_scripts':['pyrttov=pydisalexi.__init__:Rttov']}}
+    setup_kwargs = {'entry_points': {'console_scripts':['pyrttov=pyrttov.__init__:Rttov']}}
 except ImportError:
     from distutils.core import setup
     setup_kwargs = {'scripts': ['bin/pyrttov']}
