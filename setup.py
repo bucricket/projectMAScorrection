@@ -2,14 +2,7 @@
 import subprocess
 import os
 
-try:
-    from setuptools import setup
-    setup_kwargs = {'entry_points': {'console_scripts':['pyrttov=pyrttov.__init__:Rttov']}}
-except ImportError:
-    from distutils.core import setup
-    setup_kwargs = {'scripts': ['bin/pyrttov']}
-    
-from pyrttov import __version__
+
 
 
 prefix  = os.environ.get('PREFIX')
@@ -44,6 +37,15 @@ subprocess.call(["../build/rttov_compile.sh"])
 subprocess.call(["mv","-s", "%s" % os.path.join(libDir,'rttov_wrapper_f2py.so'), 
 "%s" % os.path.join(binDir,'rttov_wrapper_f2py.so')])
 
+
+try:
+    from setuptools import setup
+    setup_kwargs = {'entry_points': {'console_scripts':['pyrttov=pyrttov.__init__:Rttov']}}
+except ImportError:
+    from distutils.core import setup
+    setup_kwargs = {'scripts': ['bin/pyrttov']}
+    
+from pyrttov import __version__
 
 setup(
     name="pyrttov",
