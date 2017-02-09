@@ -29,8 +29,12 @@ subprocess.call(["../build/rttov_compile.sh"])
 
 #====moving shared library to bin ===========
 
+# get Anaconda root location
+p = subprocess.Popen(["conda", "info", "--root"],stdout=subprocess.PIPE)
+out = p.communicate()
+condaPath = out[0][:-1]
 
-shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),os.path.join(binDir,'rttov_wrapper_f2py.so'))
+shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),os.path.join(condaPath,'bin','rttov_wrapper_f2py.so'))
 
 try:
     from setuptools import setup
