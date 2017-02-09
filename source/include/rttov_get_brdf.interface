@@ -1,0 +1,24 @@
+Interface
+SUBROUTINE rttov_get_brdf(  &
+              & err,        & ! out
+              & chanprof,   & ! in
+              & profiles,   & ! in
+              & coefs,      & ! in
+              & brdf,       & ! out
+              & brdf_flag,  & ! out, optional
+              & bh_albedo)    ! out, optional
+  USE parkind1, ONLY : jpim, jprb
+  USE rttov_types, ONLY : &
+          rttov_chanprof, &
+          profile_type,   &
+          rttov_coefs
+  IMPLICIT NONE
+  INTEGER(KIND=jpim),   INTENT(OUT)           :: err
+  TYPE(rttov_chanprof), INTENT(IN)            :: chanprof(:)
+  TYPE(profile_type),   INTENT(IN)            :: profiles(:)
+  TYPE(rttov_coefs),    INTENT(IN)            :: coefs
+  REAL(KIND=jprb),      INTENT(OUT)           :: brdf(size(chanprof))
+  INTEGER(KIND=jpim),   INTENT(OUT), OPTIONAL :: brdf_flag(size(chanprof))
+  REAL(KIND=jprb),      INTENT(OUT), OPTIONAL :: bh_albedo(size(chanprof))
+End Subroutine
+End Interface

@@ -1,0 +1,15 @@
+FC=pgf90
+FC77=pgf90
+CC=gcc
+LDFLAGS_ARCH=-g
+CFLAGS_ARCH=-g
+FFLAGS_ARCH=-g -Mbounds -Mchkptr -traceback -Kieee -fPIC
+AR=ar r
+
+F2PY=f2py --fcompiler=pg
+F2PYFLAGS_ARCH="-fPIC -g"
+F2PYLDFLAGS_ARCH=
+
+FFLAGS_ARCH_lapack=-g -Mbounds -traceback -Kieee -fPIC
+FFLAGS_ARCH_lapack_lbl=-g -Mbounds -traceback -Kieee -fPIC
+FFLAGS_ARCH_rttov_test=-g -Mbounds -traceback -Kieee -fPIC

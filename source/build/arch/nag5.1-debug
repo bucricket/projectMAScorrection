@@ -1,0 +1,41 @@
+FC=f95
+FC77=f95 -dusty 
+CC=gcc
+LDFLAGS_ARCH=
+CFLAGS_ARCH=-g
+
+# -C=all all warnings
+# -gline backtrace on error
+# -nan initialize real values to NaN
+# -ieee=stop stop program on arithmetic exception
+# -g90 generate debug data for NAG debugger
+FFLAGS_ARCH=-C=all -g -gline -nan -ieee=stop -kind=byte -maxcontin=120
+AR=ar r
+
+# -DRTTOV_USE_F90_UNIX_ENV enable the use of NAG compatibility modules 
+# -DRTTOV_NAG51 for NAG version 5.1 and earlier
+FFLAGS_ARCH_rttov_unix_env=$(FFLAGS_ARCH) -DRTTOV_USE_F90_UNIX_ENV -DRTTOV_NAG51
+
+# nag 5.2(649) is broken
+
+# array     (check array bounds),
+# bits      (check bit intrinsic arguments),
+# calls     (check procedure references),
+# dangling  (check for dangling pointers),
+# do        (check DO loops for zero step values),
+# none      (do no checking: this is the default),
+# present   (check OPTIONAL references),
+# pointer   (check POINTER references),
+# recursion (check for invalid recursion) or
+# undefined (check for undefined variables; see later section for details).
+
+
+FFLAGS_ARCH_rttov_test       = -C=array -C=bits -C=calls -C=do -C=present -C=recursion -g -gline -nan -ieee=stop -kind=byte 
+FFLAGS_ARCH_rttov_chain      = -C=array -C=bits -C=calls -C=do -C=present -C=recursion -g -gline -nan -ieee=stop -kind=byte
+FFLAGS_ARCH_rttov_conv_coef  = -C=array -C=bits -C=calls -C=do -C=present -C=recursion -g -gline -nan -ieee=stop -kind=byte
+FFLAGS_ARCH_rttov_ad         = -C -g -gline -nan -ieee=stop -kind=byte 
+FFLAGS_ARCH_rttov_tl         = -C -g -gline -nan -ieee=stop -kind=byte
+FFLAGS_ARCH_rttov_alloc_rad  = -C -g -gline -nan -ieee=stop -kind=byte 
+FFLAGS_ARCH_rttov_alloc_pc_dimensions = -C -g -gline -nan -ieee=stop -kind=byte 
+FFLAGS_ARCH_mod_cnrm_mw_atlas = -C=all -g -gline -ieee=stop -kind=byte
+FFLAGS_ARCH_mod_brdf_atlas    = -C=all -g -gline -ieee=stop -kind=byte -g90 -maxcontin=500

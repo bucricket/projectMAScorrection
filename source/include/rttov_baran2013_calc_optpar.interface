@@ -1,0 +1,16 @@
+Interface
+SUBROUTINE rttov_baran2013_calc_optpar (optp, ichn, t_in, iwc_in, abso, sca, bpr, asym)
+  USE rttov_types, ONLY :  &
+       & rttov_optpar_ir
+  USE parkind1, ONLY : jpim, jprb
+  IMPLICIT NONE
+  TYPE(rttov_optpar_ir) ,INTENT(IN)  :: optp
+  INTEGER(KIND=jpim)    ,INTENT(IN)  :: ichn
+  REAL(KIND=JPRB)       ,INTENT(IN)  :: t_in
+  REAL(KIND=JPRB)       ,INTENT(IN)  :: iwc_in
+  REAL(KIND=JPRB)       ,INTENT(OUT) :: abso
+  REAL(KIND=JPRB)       ,INTENT(OUT) :: sca
+  REAL(KIND=JPRB)       ,INTENT(OUT) :: bpr
+  REAL(KIND=JPRB)       ,INTENT(OUT) :: asym
+End Subroutine
+End Interface

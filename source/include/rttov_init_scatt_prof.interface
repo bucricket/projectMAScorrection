@@ -1,0 +1,7 @@
+Interface
+SUBROUTINE rttov_init_scatt_prof(cld_profiles)
+  USE rttov_types, ONLY : profile_cloud_type
+  IMPLICIT NONE
+  TYPE(profile_cloud_type), INTENT(INOUT) :: cld_profiles(:)
+End Subroutine
+End Interface

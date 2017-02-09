@@ -1,0 +1,12 @@
+FC=f90
+FC77=f90
+CC=gcc
+LDFLAGS_ARCH=
+CFLAGS_ARCH=-g
+
+FFLAGS_ARCH=-O3 -Usun 
+
+AR=ar r
+
+FFLAG_MOD=-M
+

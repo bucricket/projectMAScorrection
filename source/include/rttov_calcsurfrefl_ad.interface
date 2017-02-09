@@ -1,0 +1,38 @@
+Interface
+SUBROUTINE rttov_calcsurfrefl_ad( &
+            & coef,               &
+            & profiles,           &
+            & sunglint,           &
+            & sunglint_ad,        &
+            & fresnrefl,          &
+            & fresnrefl_ad,       &
+            & solar,              &
+            & chanprof,           &
+            & refl_norm,          &
+            & calcrefl,           &
+            & emissivity,         &
+            & emissivity_ad,      &
+            & reflectance_ad)
+  USE rttov_types, ONLY :  &
+       & rttov_chanprof,   &
+       & rttov_coef,       &
+       & rttov_emissivity, &
+       & profile_Type,     &
+       & sunglint_type
+  USE parkind1, ONLY : jprb, jplm
+  IMPLICIT NONE
+  TYPE(rttov_chanprof),   INTENT(IN)              :: chanprof(:)
+  TYPE(profile_type),     INTENT(IN)              :: profiles(:)
+  TYPE(rttov_coef),       INTENT(IN)              :: coef
+  TYPE(sunglint_type),    INTENT(IN)              :: sunglint
+  TYPE(sunglint_type),    INTENT(INOUT)           :: sunglint_ad
+  REAL(KIND=jprb),        INTENT(IN)              :: fresnrefl(size(chanprof))
+  REAL(KIND=jprb),        INTENT(INOUT)           :: fresnrefl_ad(size(chanprof))
+  LOGICAL(KIND=jplm),     INTENT(IN)              :: solar(size(chanprof))
+  REAL(KIND=jprb),        INTENT(IN)              :: refl_norm(size(chanprof))
+  LOGICAL(KIND=jplm),     INTENT(IN)              :: calcrefl(size(chanprof))
+  TYPE(rttov_emissivity), INTENT(IN),    OPTIONAL :: emissivity(size(chanprof))
+  TYPE(rttov_emissivity), INTENT(INOUT), OPTIONAL :: emissivity_ad(size(chanprof))
+  REAL(KIND=jprb),        INTENT(IN)              :: reflectance_ad(size(chanprof))
+End Subroutine
+End Interface

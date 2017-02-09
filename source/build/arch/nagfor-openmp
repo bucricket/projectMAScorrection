@@ -1,0 +1,22 @@
+# OpenMP is only supported by NAG 5.3 and later
+
+FC=nagfor
+FC77=nagfor -dusty
+CC=gcc
+LDFLAGS_ARCH=-openmp
+CFLAGS_ARCH=-fPIC
+
+# -kind=byte so that jpim=4 and jprb=8; it is necessary to be able to compile against dr_hook
+# -DRTTOV_NAG53 necessary for NAG 5.3 to work with OpenMP
+FFLAGS_ARCH=-kind=byte -O4 -maxcontin=500 -PIC -openmp -DRTTOV_NAG53
+AR=ar r
+
+# -DRTTOV_USE_F90_UNIX_ENV to load NAG modules
+FFLAGS_ARCH_rttov_unix_env           = $(FFLAGS_ARCH) -DRTTOV_USE_F90_UNIX_ENV
+FFLAGS_ARCH_lapack                   = -kind=byte -O2 -PIC
+
+FFLAGS_ARCH_rttov_emis_atlas_nc2h5 = -kind=byte -O4 -maxcontin=500 -PIC -openmp -mismatch -w
+
+F2PY=f2py --fcompiler=nag --f77flags="-PIC -kind=byte"
+F2PYFLAGS_ARCH="-PIC -openmp -kind=byte"
+F2PYLDFLAGS_ARCH=

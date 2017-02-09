@@ -1,0 +1,9 @@
+Interface
+SUBROUTINE rttov_init_raytracing(addsolar, raytracings)
+  USE rttov_types, ONLY : raytracing_Type
+  USE parkind1, ONLY : jplm
+  IMPLICIT NONE
+  LOGICAL(jplm),         INTENT(IN)    :: addsolar
+  TYPE(raytracing_Type), INTENT(INOUT) :: raytracings
+End Subroutine
+End Interface

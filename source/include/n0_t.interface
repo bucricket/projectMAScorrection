@@ -1,0 +1,9 @@
+Interface
+SUBroutine n0_t (i_type, lwc, temp, n0_mp)
+use parkind1, only: jprb, jpim
+implicit none
+integer (kind=jpim), intent ( in) :: i_type
+real (kind=jprb), intent ( in) :: lwc, temp
+real (kind=jprb), intent (out) :: n0_mp
+End Subroutine
+End Interface

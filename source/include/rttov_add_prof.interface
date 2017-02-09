@@ -1,0 +1,18 @@
+Interface
+SUBROUTINE rttov_add_prof( &
+              profiles,     &
+              profiles1,    &
+              profiles2,    &
+              lair,         &
+              lground,      &
+              profiles_gas)
+  USE rttov_types, ONLY : profile_type
+  USE parkind1, ONLY : jplm
+  TYPE(profile_type), INTENT(INOUT)           :: profiles(:)
+  TYPE(profile_type), INTENT(IN)              :: profiles1(SIZE(profiles))
+  TYPE(profile_type), INTENT(IN)              :: profiles2(SIZE(profiles))
+  LOGICAL(KIND=jplm), INTENT(IN), OPTIONAL    :: lair
+  LOGICAL(KIND=jplm), INTENT(IN), OPTIONAL    :: lground
+  TYPE(profile_type), INTENT(INOUT), OPTIONAL :: profiles_gas(SIZE(profiles))
+End Subroutine
+End Interface

@@ -1,0 +1,9 @@
+Interface
+subroutine mg_ellips (fv_incl, perm_matrix, perm_incl, perm_mix)
+use parkind1, only: jprb
+implicit none
+real    (kind=jprb), intent ( in) :: fv_incl
+complex (kind=jprb), intent ( in) :: perm_matrix, perm_incl
+complex (kind=jprb), intent (out) :: perm_mix
+End Subroutine
+End Interface

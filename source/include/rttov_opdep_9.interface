@@ -1,0 +1,33 @@
+Interface
+SUBROUTINE rttov_opdep_9( &
+            & nlayers,    &
+            & chanprof,   &
+            & chanflag,   &
+            & pred_info,  &
+            & predictors, &
+            & aux,        &
+            & coef,       &
+            & fast_coef,  &
+            & opdp_path,  &
+            & opdp_ref)
+  USE rttov_types, ONLY : &
+       & rttov_chanprof,  &
+       & rttov_coef,      &
+       & rttov_fast_coef, &
+       & predictors_Type, &
+       & rttov_path_pred, &
+       & profile_aux
+  USE parkind1, ONLY : jpim, jprb, jplm
+  IMPLICIT NONE
+  INTEGER(KIND=jpim)   , INTENT(IN)    :: nlayers                          ! Number of pressure levels
+  TYPE(rttov_chanprof ), INTENT(IN)    :: chanprof(:)                      ! Channel indices
+  LOGICAL(KIND=jplm)   , INTENT(IN)    :: chanflag(SIZE(chanprof))         ! Channel calculation flag
+  TYPE(predictors_Type), INTENT(IN)    :: pred_info                        ! Predictor structure
+  TYPE(rttov_path_pred), INTENT(IN)    :: predictors                       ! Predictors
+  TYPE(rttov_coef     ), INTENT(IN)    :: coef                             ! Coefficient structure
+  TYPE(rttov_fast_coef), INTENT(IN)    :: fast_coef                        ! Fast coefficients
+  TYPE(profile_aux    ), INTENT(IN)    :: aux                              ! auxillary profiles informations
+  REAL(KIND=jprb)      , INTENT(INOUT) :: opdp_path(:,:)                   ! optical depths
+  REAL(KIND=jprb)      , INTENT(INOUT) :: opdp_ref(nlayers, SIZE(chanprof))! layer optical depth
+End Subroutine
+End Interface

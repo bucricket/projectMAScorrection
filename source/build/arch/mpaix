@@ -1,0 +1,7 @@
+FC=mpxlf90
+FC77=f77
+CC=xlc
+LDFLAGS_ARCH=
+CFLAGS_ARCH=-g
+FFLAGS_ARCH=-g -qextname -qstrict -pg 
+AR=ar r

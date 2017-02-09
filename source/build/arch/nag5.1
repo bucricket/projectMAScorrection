@@ -1,0 +1,23 @@
+FC=f95
+FC77=f95 -dusty
+CC=gcc
+LDFLAGS_ARCH=
+CFLAGS_ARCH=-g
+# -kind=byte so that jpim=4 and jprb=8; it is necessary to be able to compile against dr_hook
+FFLAGS_ARCH=-kind=byte -O4 -maxcontin=500
+AR=ar r
+
+# 5.2(649) is broken
+FFLAGS_ARCH_rttov_integratesource_tl = -kind=byte
+FFLAGS_ARCH_rttov_opdep_9_ad         = -kind=byte -g -O2
+FFLAGS_ARCH_rttov_opdep_9_k          = -kind=byte -g -O2
+FFLAGS_ARCH_rttov_fastem5            = -kind=byte -g 
+FFLAGS_ARCH_rttov_fastem5_tl         = -kind=byte -g 
+FFLAGS_ARCH_rttov_fastem5_ad         = -kind=byte -g 
+FFLAGS_ARCH_rttov_fastem5_k          = -kind=byte -g 
+FFLAGS_ARCH_rttovscatt_test_one      = -kind=byte -g -O2
+
+# -DRTTOV_USE_F90_UNIX_ENV to load NAG modules
+# -DRTTOV_NAG51 for NAG version 5.1 and earlier
+FFLAGS_ARCH_rttov_unix_env           = $(FFLAGS_ARCH) -DRTTOV_USE_F90_UNIX_ENV -DRTTOV_NAG51
+FFLAGS_ARCH_lapack                   = -kind=byte -O2

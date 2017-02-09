@@ -1,0 +1,59 @@
+Interface
+SUBROUTINE rttov_k_ad( &
+            & errorstatus,      &
+            & chanprof,         &
+            & opts,             &
+            & profiles,         &
+            & profiles_k,       &
+            & coefs,            &
+            & transmission,     &
+            & radiancedata,     &
+            & calcemis,         &
+            & emissivity,       &
+            & emissivity_k,     &
+            & calcrefl,         &
+            & reflectance,      &
+            & reflectance_k,    &
+            & aer_opt_param,    &
+            & cld_opt_param,    &
+            & pccomp,           &
+            & profiles_k_pc,    &
+            & profiles_k_rec,   &
+            & channels_rec,     &
+            & nthreads)
+  USE rttov_types, ONLY :  &
+       & rttov_coefs,       &
+       & rttov_options,     &
+       & profile_Type,      &
+       & transmission_Type, &
+       & rttov_chanprof,    &
+       & rttov_emissivity,  &
+       & rttov_reflectance, &
+       & rttov_opt_param,   &
+       & radiance_Type,     &
+       & rttov_pccomp
+  USE parkind1, ONLY : jpim, jplm
+  IMPLICIT NONE
+  INTEGER(KIND=jpim)     , INTENT(OUT)           :: errorstatus
+  TYPE(profile_Type  )   , INTENT(IN)   , TARGET :: profiles(:)
+  TYPE(rttov_chanprof)   , INTENT(IN)            :: chanprof(:)
+  TYPE(profile_Type  )   , INTENT(INOUT), TARGET :: profiles_k(size(chanprof))
+  TYPE(rttov_options )   , INTENT(IN)            :: opts
+  TYPE(rttov_coefs   )   , INTENT(IN)   , TARGET :: coefs
+  TYPE(transmission_Type), INTENT(INOUT)         :: transmission                    ! in because of mem allocation
+  TYPE(radiance_Type    ), INTENT(INOUT)         :: radiancedata                    ! in because of mem allocation
+  LOGICAL(KIND=jplm)     , INTENT(IN)   , OPTIONAL         :: calcemis(size(chanprof))
+  TYPE(rttov_emissivity) , INTENT(INOUT), OPTIONAL         :: emissivity(size(chanprof))
+  TYPE(rttov_emissivity) , INTENT(INOUT), OPTIONAL         :: emissivity_k(size(chanprof))
+  LOGICAL(KIND=jplm)     , INTENT(IN)   , OPTIONAL         :: calcrefl(size(chanprof))
+  TYPE(rttov_reflectance), INTENT(INOUT), OPTIONAL         :: reflectance(size(chanprof))
+  TYPE(rttov_reflectance), INTENT(INOUT), OPTIONAL         :: reflectance_k(size(chanprof))
+  TYPE(rttov_opt_param  ), INTENT(IN)   , OPTIONAL         :: aer_opt_param
+  TYPE(rttov_opt_param  ), INTENT(IN)   , OPTIONAL         :: cld_opt_param
+  TYPE(rttov_pccomp     ), INTENT(INOUT), OPTIONAL         :: pccomp
+  TYPE(profile_Type     ), INTENT(INOUT), OPTIONAL, TARGET :: profiles_k_pc(:)
+  TYPE(profile_Type     ), INTENT(INOUT), OPTIONAL, TARGET :: profiles_k_rec(:)
+  INTEGER(KIND=jpim)     , INTENT(IN)   , OPTIONAL         :: channels_rec(:)
+  INTEGER(KIND=jpim)     , INTENT(IN)                      :: nthreads
+End Subroutine
+End Interface

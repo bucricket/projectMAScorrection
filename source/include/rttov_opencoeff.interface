@@ -1,0 +1,17 @@
+Interface
+SUBROUTINE rttov_opencoeff (&
+       & err,        &
+       & coeffname,  &
+       & file_id,    &
+       & for_output, &
+       & lbinary     )
+#include "throw.h"
+  USE parkind1, ONLY : jpim, jplm
+  IMPLICIT NONE
+  INTEGER(KIND=jpim), INTENT(OUT)          :: err
+  CHARACTER(LEN=*),   INTENT(IN)           :: coeffname  ! filename of the coefficient file
+  INTEGER(KIND=jpim), INTENT(INOUT)        :: file_id
+  LOGICAL(KIND=jplm), INTENT(IN), OPTIONAL :: for_output ! file access mode
+  LOGICAL(KIND=jplm), INTENT(IN), OPTIONAL :: lbinary    ! if binary file wanted
+End Subroutine
+End Interface

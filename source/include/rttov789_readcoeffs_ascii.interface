@@ -1,0 +1,16 @@
+Interface
+Subroutine rttov789_readcoeffs_ascii  (&
+       & errorstatus,   &! out
+       & coef,          &! inout
+       & file_lu,       &! in
+       & channels      ) ! in Optional 
+  Use rttov_types, Only : &
+        & rttov_coef
+  Use parkind1, Only : jpim
+  Implicit None
+  Integer(Kind=jpim), Intent (in)           :: file_lu      ! file logical unit number
+  Integer(Kind=jpim), Optional, Intent (in) :: channels(:)  ! list of channels to extract
+  Type( rttov_coef ), Intent (inout) :: coef   ! coefficients
+  Integer(Kind=jpim), Intent (out) :: errorstatus       ! return code
+End Subroutine
+End Interface

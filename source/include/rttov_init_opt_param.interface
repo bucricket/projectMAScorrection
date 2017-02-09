@@ -1,0 +1,10 @@
+Interface
+SUBROUTINE rttov_init_opt_param(err, opts, opt_param)
+  USE rttov_types, ONLY : rttov_options, rttov_opt_param
+  USE parkind1, ONLY : jpim
+  IMPLICIT NONE
+  INTEGER(KIND=jpim),    INTENT(INOUT)          :: err
+  TYPE(rttov_options),   INTENT(IN)             :: opts
+  TYPE(rttov_opt_param), INTENT(INOUT)          :: opt_param
+End Subroutine
+End Interface

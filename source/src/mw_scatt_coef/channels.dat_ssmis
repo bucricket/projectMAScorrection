@@ -1,0 +1,53 @@
+ ! Configuration file for Mie table generation 
+ ! ------------------------------------------------------ 
+HEADER 
+ ! Output directory for Mie tables:
+/enter/your/path/here/
+17     ! Number of frequencies for Mie calculation   
+1      ! Number of sensors
+5      ! Number of hydrometeors and below, their IDs (see mod_mie.F90)
+1   2   5   6   7
+ ! ------------------------------------------------------ 
+CONFIGURATION OF OPTICAL TABLE CALCULATION
+F      ! (T/F) - use melting layer of Bauer (2001)    
+F      ! (T/F) - In Marshall-Palmer PSD, use n0 vs T from Panegrossi et al. (1998), appendix
+       ! The following properties are specified per hydrometeor:
+       ! (A) - Mie sphere or DDA? 0-10 uses DDA shape from Liu (2008,see scatdb.c); -1 uses a Mie sphere: 
+-1  9 -1 -1 -1
+       ! (B) - Density: (1) 0.132*D-1 (Wilson & Ballard, 1999) (2) 8.74E-4*exp(-0.625D2) + 4.5E-5 (Jones, 1995) 
+       ! (3) 0.035*D-1.1 (Brown & Francis, 1995) (4) Constant density as defined in mod_mie.F90
+       ! (5) Parameterization of density vs frequency from Surussavadee et al. (2006)
+       ! Density 2 cannot be used with PSD 3 or 4. Density is defined by the DDA shape if that option is chosen.
+ 4  4  4  4  3
+       ! (C) - PSD: (1) Modified gamma (2) Marshall-Palmer (3) Field et al 2005 (4) Field et al 2007
+ 2  4  1  1  4
+       ! (D) - PSD Regime: (T) tropical (M) midlatitude (Applies to Field et al 2007 only)
+ T  T  T  T  M
+ ! ------------------------------------------------------ 
+FREQUENCIES 
+ ! Frequency number, GHz, number of sidebands, delta GHz for sidebands 
+ 1   19.350      1    0.00
+ 2   22.235      1    0.00
+ 3   37.000      1    0.00
+ 4   91.655      2    0.90
+ 5  150.000      2    1.25
+ 6  183.310      2    1.00
+ 7  183.310      2    3.00
+ 8  183.310      2    6.60
+ 9   50.300      1    0.00
+10   52.800      1    0.00
+11   53.600      1    0.00
+12   54.400      1    0.00
+13   55.500      1    0.00
+14   57.290      1    0.00
+15   59.400      1    0.00
+16   60.793      1    0.00
+17   63.283      1    0.00
+ ! ------------------------------------------------------ 
+INSTRUMENTS 
+ ! 2 lines per instrument: 
+ ! a) 8 chars of platform, 8 chars of instrument name, I4 platform ID, I4 sensor ID
+ ! b) Number of channels and the corresponding frequency IDs 
+dmsp    ssmis      2  10
+21  9  10  11  12  13  14  15  5  8  7  6  1  2  3  4  17  16  16  16  16  16
+

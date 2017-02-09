@@ -1,0 +1,7 @@
+&angles
+  zenangle     = 0.
+  azangle      = 0.
+  sunzenangle  = 45.
+  sunazangle   = 0.
+  latitude     = 0.
+/

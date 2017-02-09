@@ -1,0 +1,52 @@
+<html>
+<body bgcolor="#ababab">
+
+<h4>Table of Contents</h4>
+<ul>
+<li><a href="#Charts">charts : TOTAL, CLEAR, BT, REFL</a></li>
+<li><a href="#Tabs">tabs : byChannel, byRun, OnePlot</a></li>
+</ul>
+
+<p>
+<a name="Charts">
+<h6>Charts</h6>
+<ul>
+<li><strong>TOTAL :</strong> Clear+cloudy top of atmosphere radiance for given cloud top pressure and fraction [mw/cm-1/ster/sq.m]</li>
+<li><strong>CLEAR :</strong> Clear sky top of atmosphere radiance (channels) [mw/cm-1/ster/sq.m]</li>
+<li><strong>BT :</strong> Brightness temp equivalent to total radiance [Kelvin]</li>
+<li><strong>BT_CLEAR :</strong> Brightness temp equivalent to clear radiance [Kelvin]</li>
+<li><strong>REFL :</strong> Reflectance calculated from total radiance [N/A]</li>
+<li><strong>REFL_CLEAR :</strong> Reflectance calculated from clear radiance [N/A]</li>
+</ul>
+</a>
+</p>
+
+<p>
+<a name="Tabs">
+<h6>Notebook tabs</h6>
+<dl>
+<dt><strong>byChannel</strong> <dd>For each run, view all charts with all channels values 
+	<ul>	
+		<li>-- Run --</li> : choose a run
+		<li>-- ref run --</li> : choose a reference run
+		<li>-- Pseudo Run --</li> : difference with refernce run
+	</ul>
+<dt><strong>byRun</strong><dd>For each channel, view all charts with all runs values 
+	<ul>	
+		<li>-- Channel --</li> : choose a channel
+		<li>-- Pseudo Channel --</li> : channels combination
+	</ul>
+<dt><strong>OnePlot</strong><dd>View one chart
+	<ul>	
+		<li>TOTAL BT REFL +CLEAR</li> : choose a chart type
+		<li>-- Run --</li> : choose a run
+		<li>-- ref run --</li> : choose a reference run
+		<li>-- Pseudo Run --</li> : difference with refernce run
+		<li>-- Channel --</li> : choose a channel
+		<li>-- Pseudo Channel --</li> : channels combination
+	</ul>
+</dl>
+</a>
+
+</body>
+</html>

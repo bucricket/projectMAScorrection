@@ -1,0 +1,21 @@
+Interface
+SUBROUTINE rttov_alloc_opdp_path( &
+            & ERR,       &
+            & opts,      &
+            & opdp_path, &
+            & nlevels,   &
+            & nchannels, &
+            & asw,       &
+            & init)
+  USE rttov_types, ONLY : rttov_options, opdp_path_Type
+  USE parkind1, ONLY : jpim, jplm
+  IMPLICIT NONE
+  INTEGER(KIND=jpim)  , INTENT(OUT)             :: ERR      ! return code
+  TYPE(rttov_options) , INTENT(IN)              :: opts
+  INTEGER(KIND=jpim)  , INTENT(IN)              :: nlevels
+  INTEGER(KIND=jpim)  , INTENT(IN)              :: nchannels
+  TYPE(opdp_path_Type), INTENT(INOUT)           :: opdp_path
+  INTEGER(KIND=jpim)  , INTENT(IN)              :: asw      ! 1=allocate, 0=deallocate
+  LOGICAL(KIND=jplm)  , INTENT(IN)   , OPTIONAL :: init
+End Subroutine
+End Interface

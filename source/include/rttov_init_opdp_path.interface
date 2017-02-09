@@ -1,0 +1,8 @@
+Interface
+SUBROUTINE rttov_init_opdp_path(opts, opdp_path)
+  USE rttov_types, ONLY : rttov_options, opdp_path_Type
+  IMPLICIT NONE
+  TYPE(rttov_options) , INTENT(IN)    :: opts
+  TYPE(opdp_path_Type), INTENT(INOUT) :: opdp_path
+End Subroutine
+End Interface

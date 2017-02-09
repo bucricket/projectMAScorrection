@@ -1,0 +1,4 @@
+&aerosli
+  idg  = 0
+  ish  = 0
+/

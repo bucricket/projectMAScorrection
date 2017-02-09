@@ -1,0 +1,10 @@
+Interface
+subroutine liu_dda (f_ghz, temp, liu_habit, Dinmeters, q_ext, q_sct, q_asm, q_bsct, is_loaded)
+use parkind1, only: jprb, jpim
+implicit none
+integer (kind=jpim), intent ( in) :: liu_habit
+integer (kind=jpim), intent (inout) :: is_loaded
+real    (kind=jprb), intent ( in) :: f_ghz, temp, Dinmeters        ! [Ghz, K, m] 
+real    (kind=jprb), intent (out) :: q_ext, q_sct, q_asm, q_bsct   ! [cm^2]
+End Subroutine
+End Interface

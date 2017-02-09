@@ -1,0 +1,30 @@
+Interface
+SUBROUTINE rttov_intavg_chan( &
+            & opts,     &
+            & thermal,  &
+            & solar,    &
+            & kni,      &
+            & kno,      &
+            & chanprof, &
+            & ProfIn,   &
+            & ProfOut,  &
+            & OpdepIn,  &
+            & OpdepOut)
+  USE rttov_types, ONLY :  &
+       & rttov_chanprof, &
+       & rttov_options,  &
+       & profile_type,   &
+       & opdp_path_type
+  USE parkind1, ONLY : jpim, jplm
+  IMPLICIT NONE
+  TYPE(rttov_chanprof), INTENT(IN)    :: chanprof(:)
+  TYPE(rttov_options),  INTENT(IN)    :: opts
+  LOGICAL(KIND=jplm)  , INTENT(IN)    :: thermal(SIZE(chanprof)) ! Thermal calculation flag
+  LOGICAL(KIND=jplm)  , INTENT(IN)    :: solar(SIZE(chanprof))   ! Solar calculation flag
+  INTEGER(KIND=jpim)  , INTENT(IN)    :: kni, kno                ! number of levels
+  TYPE(profile_type  ), INTENT(IN)    :: ProfIn (:)              ! atmospheric profiles
+  TYPE(profile_type  ), INTENT(IN)    :: ProfOut(:)              ! atmospheric profiles
+  TYPE(opdp_path_type), INTENT(IN)    :: OpdepIn                 ! optical depths
+  TYPE(opdp_path_type), INTENT(INOUT) :: OpdepOut                ! optical depths
+End Subroutine
+End Interface

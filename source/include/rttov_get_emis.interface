@@ -1,0 +1,33 @@
+Interface
+SUBROUTINE rttov_get_emis(  &
+              & err,        & ! out
+              & opts,       & ! in
+              & chanprof,   & ! in
+              & profiles,   & ! in
+              & coefs,      & ! in
+              & resolution, & ! in, optional (MW atlas only)
+              & emissivity, & ! out
+              & emis_std,   & ! out, optional (not CNRM atlas)
+              & emis_cov,   & ! out, optional (MW atlas only)
+              & emis_flag,  & ! out, optional (IR atlas only)
+              & pbats_veg)    ! out, optional (MW CNRM atlas only)
+  USE parkind1, ONLY : jpim, jprb
+  USE rttov_types, ONLY : &
+          rttov_chanprof, &
+          profile_type,   &
+          rttov_coefs,    &
+          rttov_options
+  IMPLICIT NONE
+  INTEGER(KIND=jpim),   INTENT(OUT)           :: err
+  TYPE(rttov_options),  INTENT(IN)            :: opts
+  TYPE(rttov_chanprof), INTENT(IN)            :: chanprof(:)
+  TYPE(profile_type),   INTENT(IN)            :: profiles(:)
+  TYPE(rttov_coefs),    INTENT(IN)            :: coefs
+  REAL(KIND=jprb),      INTENT(IN),  OPTIONAL :: resolution
+  REAL(KIND=jprb),      INTENT(OUT)           :: emissivity(size(chanprof))
+  REAL(KIND=jprb),      INTENT(OUT), OPTIONAL :: emis_std(size(chanprof))
+  REAL(KIND=jprb),      INTENT(OUT), OPTIONAL :: emis_cov(:,:,:)
+  INTEGER(KIND=jpim),   INTENT(OUT), OPTIONAL :: emis_flag(size(chanprof))
+  REAL(KIND=jprb),      INTENT(OUT), OPTIONAL :: pbats_veg(size(chanprof))
+End Subroutine
+End Interface

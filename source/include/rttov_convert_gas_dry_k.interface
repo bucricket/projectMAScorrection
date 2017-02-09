@@ -1,0 +1,15 @@
+Interface
+SUBROUTINE rttov_convert_gas_dry_k(opts, chanprof, profiles, profiles_k, profiles_dry, profiles_dry_k)
+  USE rttov_types, ONLY : &
+      rttov_options,      &
+      rttov_chanprof,     &
+      profile_type
+  IMPLICIT NONE
+  TYPE(rttov_options),  INTENT(IN)    :: opts
+  TYPE(rttov_chanprof), INTENT(IN)    :: chanprof(:)
+  TYPE(profile_type),   INTENT(IN)    :: profiles(:)
+  TYPE(profile_type),   INTENT(INOUT) :: profiles_k(SIZE(chanprof))
+  TYPE(profile_type),   INTENT(IN)    :: profiles_dry(SIZE(profiles))
+  TYPE(profile_type),   INTENT(IN)    :: profiles_dry_k(SIZE(chanprof))
+End Subroutine
+End Interface

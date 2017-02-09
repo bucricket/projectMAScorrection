@@ -1,0 +1,9 @@
+Interface
+Subroutine rttov_dealloc_scattcoeffs  (&
+      & coef_scatt)     ! inout  
+#include "throw.h"
+  Use rttov_types, Only : rttov_scatt_coef
+  Implicit None
+  Type( rttov_scatt_coef ), Intent (inout) :: coef_scatt ! coefficients
+End Subroutine
+End Interface

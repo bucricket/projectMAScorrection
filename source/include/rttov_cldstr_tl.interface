@@ -1,0 +1,16 @@
+Interface
+SUBROUTINE rttov_cldstr_tl( &
+            & opts_rt_ir,  &
+            & profiles,    &
+            & profiles_tl, &
+            & ircld,       &
+            & ircld_tl)
+  USE rttov_types, ONLY : profile_type, ircld_type, rttov_opts_rt_ir
+  IMPLICIT NONE
+  TYPE(rttov_opts_rt_ir), INTENT(IN)    :: opts_rt_ir
+  TYPE(profile_type),     INTENT(IN)    :: profiles(:)
+  TYPE(profile_type),     INTENT(IN)    :: profiles_tl(SIZE(profiles))
+  TYPE(ircld_type),       INTENT(INOUT) :: ircld
+  TYPE(ircld_type),       INTENT(INOUT) :: ircld_tl
+End Subroutine
+End Interface

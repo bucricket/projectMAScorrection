@@ -1,0 +1,11 @@
+Interface
+SUBROUTINE rttov_convert_gas_dry(opts, profiles, profiles_dry)
+  USE rttov_types, ONLY : &
+      rttov_options,      &
+      profile_type
+  IMPLICIT NONE
+  TYPE(rttov_options), INTENT(IN)    :: opts
+  TYPE(profile_type),  INTENT(IN)    :: profiles(:)
+  TYPE(profile_type),  INTENT(INOUT) :: profiles_dry(SIZE(profiles))
+End Subroutine
+End Interface

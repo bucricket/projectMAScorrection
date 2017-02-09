@@ -1,0 +1,9 @@
+Interface
+SUBROUTINE rttov_init_predictor(addsolar, predictors)
+  USE rttov_types, ONLY : predictors_type
+  USE parkind1,    ONLY : jplm
+  IMPLICIT NONE
+  LOGICAL(KIND=jplm),    INTENT(IN)    :: addsolar
+  TYPE(predictors_type), INTENT(INOUT) :: predictors
+End Subroutine
+End Interface

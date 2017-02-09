@@ -1,0 +1,5 @@
+&coef_nml
+  defn%f_coef = 'rtcoef_rttov11/rttov9pred101L/rtcoef_metop_2_iasi.H5'
+  defn%f_pccomp = 'rtcoef_rttov11/pc/pccoefcld_metop_2_iasi.H5'
+  defn%f_optp = 'rtcoef_rttov11/cldaer/sccldcoef_metop_2_iasi.H5'
+/

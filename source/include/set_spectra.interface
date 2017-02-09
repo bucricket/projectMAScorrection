@@ -1,0 +1,14 @@
+Interface
+subroutine set_spectra (i_type, lwc, temp, f_ghz, dia_froz, nd, psd, ll_dsd, dens, regime, &
+  & ll_liu_dda, liu_habit, ll_variable_d)
+use parkind1, only: jprb, jpim, jplm
+use mod_mie,  only: n_dia
+implicit none
+real (kind=jprb),    intent ( in)   :: lwc, temp, f_ghz
+real (kind=jprb),    intent (inout) :: dia_froz(n_dia)
+integer (kind=jpim), intent ( in)   :: psd, dens, liu_habit, i_type
+logical (kind=jplm), intent ( in)   :: ll_dsd, ll_liu_dda, ll_variable_d
+character,           intent ( in)   :: regime
+real (kind=jprb),    intent (out)   :: nd(n_dia) 
+End Subroutine
+End Interface

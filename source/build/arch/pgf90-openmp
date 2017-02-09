@@ -1,0 +1,21 @@
+FC=pgf90
+FC77=pgf90
+CC=gcc
+LDFLAGS_ARCH=-mp
+CFLAGS_ARCH=
+AR=ar r
+
+# For PGF v14 and v15 -fastsse and -fast don't work with -mp
+FFLAGS_ARCH=-O2 -Kieee -notraceback -mp -fPIC
+
+# This works with PGF v11:
+# FFLAGS_ARCH=-O2 -fastsse -Kieee -notraceback -mp -fPIC
+
+
+# PGF v14 won't compile this subroutine with optimisations:
+FFLAGS_ARCH_rttov_add_aux_prof=-Kieee -notraceback -mp -fPIC
+
+
+F2PY=f2py --fcompiler=pg
+F2PYFLAGS_ARCH="-fPIC"
+F2PYLDFLAGS_ARCH="-lpgmp"

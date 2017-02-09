@@ -1,0 +1,15 @@
+Interface
+SUBROUTINE rttov_cldstr( &
+            & opts_rt_ir,       &
+            & profiles,         &
+            & ircld,            &
+            & nstreams)
+  USE rttov_types, ONLY : profile_type, ircld_type, rttov_opts_rt_ir
+  USE parkind1, ONLY : jpim
+  IMPLICIT NONE
+  INTEGER(KIND=jpim),     INTENT(OUT)   :: nstreams
+  TYPE(rttov_opts_rt_ir), INTENT(IN)    :: opts_rt_ir
+  TYPE(profile_type),     INTENT(IN)    :: profiles(:)
+  TYPE(ircld_type),       INTENT(INOUT) :: ircld
+End Subroutine
+End Interface

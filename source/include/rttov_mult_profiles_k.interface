@@ -1,0 +1,11 @@
+Interface
+SUBROUTINE rttov_mult_profiles_k(profiles_k_rec, profiles_k, total_k_pc, opts)
+  USE parkind1, ONLY : jprb
+  USE rttov_types, ONLY : profile_type, rttov_options
+  IMPLICIT NONE
+  TYPE(profile_type) , INTENT(INOUT) :: profiles_k_rec(:)
+  TYPE(profile_type) , INTENT(IN)    :: profiles_k   (:)
+  REAL(KIND=jprb)    , INTENT(IN)    :: total_k_pc   (:, :, :)! dBT(PC)/dRadiance(RTTOV)
+  TYPE(rttov_options), INTENT(IN)    :: opts
+End Subroutine
+End Interface

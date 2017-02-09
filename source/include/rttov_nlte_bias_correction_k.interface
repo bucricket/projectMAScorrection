@@ -1,0 +1,17 @@
+Interface
+SUBROUTINE rttov_nlte_bias_correction_k(coef,     &
+                                         profiles,   profiles_k, &
+                                         angles,   &
+                                         chanprof, &
+                                                     rad_k) 
+  USE rttov_types, ONLY : rttov_coef, profile_type, geometry_type, &
+                          rttov_chanprof, radiance_type
+  IMPLICIT NONE
+  TYPE(rttov_coef),     INTENT(IN)    :: coef   ! nlte_coef structure 
+  TYPE(profile_type),   INTENT(IN)    :: profiles(:) ! Atmospheric profiles
+  TYPE(profile_type),   INTENT(INOUT) :: profiles_k(:) 
+  TYPE(geometry_type),  INTENT(IN)    :: angles(:)   ! geometry angles
+  TYPE(rttov_chanprof), INTENT(IN)    :: chanprof(:)   ! geometry angles
+  TYPE(radiance_type),  INTENT(INOUT) :: rad_k
+End Subroutine
+End Interface

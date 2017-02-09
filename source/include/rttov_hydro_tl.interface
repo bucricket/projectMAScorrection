@@ -1,0 +1,35 @@
+Interface
+Subroutine rttov_hydro_tl (&
+      & nlevels,           &! in
+      & nprofiles,         &! in
+      & usercfrac,         &! in
+      & presf,             &! in
+      & presftl,           &! in
+      & profiles,          &! in  
+      & profiles_tl,       &! in  
+      & cld_profiles,      &! in 
+      & cld_profiles_tl,   &! in 
+      & coef_scatt,        &! in
+      & scatt_aux,         &! inout 
+      & scatt_aux_tl)       ! inout 
+  Use rttov_types, Only :     &
+       & rttov_scatt_coef    ,&
+       & profile_scatt_aux   ,&
+       & profile_Type        ,&
+       & profile_cloud_Type  
+  Use parkind1, Only : jpim, jplm, jprb
+  Implicit None
+  Integer (Kind=jpim), Intent (in) :: nlevels   ! Number of levels
+  Integer (Kind=jpim), Intent (in) :: nprofiles ! Number of profiles
+  Logical (Kind=jplm), Intent (in) :: usercfrac               ! User has supplied cloud fraction
+  Real (Kind=jprb),           Intent (in)    :: presf(nprofiles,nlevels) ! Pressure levels [hPa]
+  Real (Kind=jprb),           Intent (in)    :: presftl(nprofiles,nlevels) ! Pressure levels [hPa]
+  Type (profile_Type),        Intent (in)    :: profiles (nprofiles)     ! Atmospheric profiles
+  Type (profile_Type),        Intent (in)    :: profiles_tl (nprofiles)  ! Atmospheric profiles
+  Type (rttov_scatt_coef),    Intent (in)    :: coef_scatt               ! RTTOV_SCATT Coefficients
+  Type (profile_cloud_Type),  Intent (in)    :: cld_profiles (nprofiles) ! Cloud profiles 
+  Type (profile_cloud_Type),  Intent (in)    :: cld_profiles_tl (nprofiles) ! Cloud profiles TL
+  Type (profile_scatt_aux),   Intent (inout) :: scatt_aux                ! Auxiliary profile variables
+  Type (profile_scatt_aux),   Intent (inout) :: scatt_aux_tl             ! Auxiliary profile variables
+End Subroutine
+End Interface

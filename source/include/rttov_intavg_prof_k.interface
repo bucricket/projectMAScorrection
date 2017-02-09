@@ -1,0 +1,30 @@
+Interface
+SUBROUTINE rttov_intavg_prof_k( &
+            & opts,        &
+            & chanprof,    &
+            & kni,         &
+            & kno,         &
+            & ProfIn,      &
+            & ProfIn_k,    &
+            & ProfGasIn,   &
+            & ProfGasIn_k, &
+            & ProfOut,     &
+            & ProfOut_k,   &
+            & coef,        &
+            & coef_pccomp)
+  USE rttov_types, ONLY : rttov_options, rttov_coef, rttov_coef_pccomp, rttov_chanprof, profile_type
+  USE parkind1, ONLY : jpim
+  IMPLICIT NONE
+  TYPE(rttov_options),     INTENT(IN)    :: opts
+  TYPE(rttov_chanprof),    INTENT(IN)    :: chanprof(:)
+  INTEGER(KIND=jpim),      INTENT(IN)    :: kni, kno                    ! number of levels
+  TYPE(profile_type),      INTENT(IN)    :: ProfIn(:)                   ! atmospheric profiles
+  TYPE(profile_type),      INTENT(INOUT) :: ProfIn_k(SIZE(chanprof))
+  TYPE(profile_type),      INTENT(IN)    :: ProfGasIn(SIZE(ProfIn))     ! atmospheric gas profiles (ppmv dry)
+  TYPE(profile_type),      INTENT(INOUT) :: ProfGasIn_k(SIZE(chanprof))
+  TYPE(profile_type),      INTENT(IN)    :: ProfOut(SIZE(ProfIn))       ! atmospheric profiles
+  TYPE(profile_type),      INTENT(INOUT) :: ProfOut_k(SIZE(chanprof))
+  TYPE(rttov_coef),        INTENT(IN)    :: coef
+  TYPE(rttov_coef_pccomp), INTENT(IN)    :: coef_pccomp
+End Subroutine
+End Interface

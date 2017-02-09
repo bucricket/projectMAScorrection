@@ -1,0 +1,20 @@
+Interface
+SUBROUTINE rttov_apply_reg_limits( &
+       & opts,        &
+       & prof_user,   &
+       & prof,        &
+       & coef,        &
+       & coef_pccomp)
+  USE rttov_types, ONLY :     &
+         & rttov_coef,        &
+         & rttov_options,     &
+         & rttov_coef_pccomp, &
+         & profile_type
+  IMPLICIT NONE
+  TYPE(rttov_options),     INTENT(IN)    :: opts
+  TYPE(profile_type),      INTENT(IN)    :: prof_user(:) ! Profiles on user levels (only p(:) and 2m p used)
+  TYPE(profile_type),      INTENT(INOUT) :: prof(:)      ! Profiles on coef levels (ppmv dry)
+  TYPE(rttov_coef),        INTENT(IN)    :: coef
+  TYPE(rttov_coef_pccomp), INTENT(IN)    :: coef_pccomp
+End Subroutine
+End Interface

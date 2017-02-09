@@ -1,0 +1,40 @@
+*************************************************************
+*                                                           *
+*        RTTOV-GUI for RTTOV v11.3                          *
+*                                                           *
+*  September 21, 2015                                       *
+*  Copyright 2015 NWPSAF                                    *
+*************************************************************
+
+Prerequisites:
+- python2.7 (http://www.python.org/download/)
+- wx python version 2.9.5 (http://www.wxpython.org)
+- numpy (http://scipy.org/Download)
+- matplotlib with backend_wxagg (http://matplotlib.org/)
+- h5py version 2.0 or later (http://www.h5py.org/)
+- HDF5 v1.8.8 or later (http://www.hdfgroup.org/HDF5/)
+- RTTOV v11.3
+
+The GUI also requires the f2py package to interface the Fortran
+and Python code. This is distributed as part of Numpy v1.6 and later.
+
+
+
+Edit the file build/Makefile.local to point to your
+HDF5 installation (see section 5 of the RTTOV user guide
+for more information about this).
+
+Compile RTTOV for the GUI by changing to the src/
+directory and typing:
+$ ../build/rttov_compile.sh
+and answer "y" at the question "...f2py detected:
+do you want to compile the Python wrapper and RTTOV GUI? (y/n)"
+
+Ensure the rttov_gui_f2py.so symbolic link points to the
+file rttov_gui_f2py.so in your RTTOV lib/ directory.
+
+Customize the rttov_gui.env environment file with RTTOV_GUI_PREFIX.
+
+Run the GUI:
+$ source ./rttov_gui.env
+$ ./rttovgui

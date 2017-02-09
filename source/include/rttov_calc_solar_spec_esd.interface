@@ -1,0 +1,11 @@
+Interface
+SUBROUTINE rttov_calc_solar_spec_esd(coef, chanprof, profiles, solar_spec_esd)
+  USE rttov_types, ONLY : rttov_chanprof, rttov_coef, profile_type
+  USE parkind1, ONLY : jprb
+  IMPLICIT NONE
+  TYPE(rttov_coef),     INTENT(IN)    :: coef                           ! Coefficients
+  TYPE(rttov_chanprof), INTENT(IN)    :: chanprof(:)                    ! Array of channel indices
+  TYPE(profile_type),   INTENT(IN)    :: profiles(:)                    ! Profiles
+  REAL(KIND=jprb),      INTENT(OUT)   :: solar_spec_esd(size(chanprof)) ! Output irradiances
+End Subroutine
+End Interface

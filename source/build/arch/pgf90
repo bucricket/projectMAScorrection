@@ -1,0 +1,14 @@
+FC=pgf90
+FC77=pgf90
+CC=gcc
+LDFLAGS_ARCH=
+CFLAGS_ARCH=
+FFLAGS_ARCH=-O2 -fastsse -Kieee -notraceback -fPIC
+AR=ar r
+
+# PGF v14 won't compile this subroutine with optimisations:
+FFLAGS_ARCH_rttov_add_aux_prof=-Kieee -notraceback -fPIC
+
+F2PY=f2py --fcompiler=pg
+F2PYFLAGS_ARCH="-fPIC"
+F2PYLDFLAGS_ARCH=

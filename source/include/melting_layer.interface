@@ -1,0 +1,13 @@
+Interface
+subroutine melting_layer (i_type, wavelength, nd, dia_froz, perm_wat, perm_ice, ext, sct, asm, bsct)
+use parkind1, only: jprb, jpim
+use mod_mie, only: n_dia
+implicit none
+real    (kind=jprb), intent ( in), dimension (n_dia) :: dia_froz
+real    (kind=jprb), intent ( in), dimension (n_dia) :: nd
+integer (kind=jpim), intent ( in) :: i_type
+real    (kind=jprb), intent ( in) :: wavelength  
+complex (kind=jprb), intent ( in) :: perm_wat, perm_ice
+real    (kind=jprb), intent (out) :: ext, sct, asm, bsct
+End Subroutine
+End Interface

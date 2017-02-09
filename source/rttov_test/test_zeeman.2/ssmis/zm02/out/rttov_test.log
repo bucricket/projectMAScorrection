@@ -1,0 +1,21 @@
+ 2015/09/11  17:17:40  Zeeman coefficient file for ssmis with  21 predictors
+ 2015/09/11  17:17:40  rttov_checkinput.F90
+     Input water vapour profile exceeds upper coef limit (profile number =        1)
+ 2015/09/11  17:17:40  Limit   =     2.8680    2.8680    2.8680    2.8680    2.8680
+ 2015/09/11  17:17:40  p (hPa) =     0.0002    0.0003    0.0010    0.0022    0.0050
+ 2015/09/11  17:17:40  Value   =     3.9100    3.9100    3.9100    3.9100    3.9100
+ 2015/09/11  17:17:40  rttov_checkinput.F90
+     Input water vapour profile exceeds upper coef limit (profile number =        2)
+ 2015/09/11  17:17:40  Limit   =     2.8680    2.8680    2.8680    2.8680    2.8680
+ 2015/09/11  17:17:40  p (hPa) =     0.0002    0.0003    0.0010    0.0022    0.0050
+ 2015/09/11  17:17:40  Value   =     3.9100    3.9100    3.9100    3.9100    3.9100
+ 2015/09/11  17:17:40  rttov_checkinput.F90
+     Input water vapour profile exceeds upper coef limit (profile number =        3)
+ 2015/09/11  17:17:40  Limit   =     2.8680    2.8680    2.8680    2.8680    2.8680
+ 2015/09/11  17:17:40  p (hPa) =     0.0002    0.0003    0.0010    0.0022    0.0050
+ 2015/09/11  17:17:40  Value   =     3.9100    3.9100    3.9100    3.9100    3.9100
+ 2015/09/11  17:17:40  rttov_checkinput.F90
+     Input water vapour profile exceeds upper coef limit (profile number =        4)
+ 2015/09/11  17:17:40  Limit   =     2.8680    2.8680    2.8680    2.8680    2.8680
+ 2015/09/11  17:17:40  p (hPa) =     0.0002    0.0003    0.0010    0.0022    0.0050
+ 2015/09/11  17:17:40  Value   =     3.9100    3.9100    3.9100    3.9100    3.9100

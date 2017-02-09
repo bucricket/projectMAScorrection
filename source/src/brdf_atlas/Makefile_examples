@@ -1,0 +1,120 @@
+#
+# Makefile for RTTOV example programs
+# (Note that the example executables are built when RTTOV is compiled: this file is for demonstration purposes)
+#
+
+# Run with:
+# $ make -f Makefile_examples
+
+# User will have to update following variables according to the local RTTOV installation and compiler
+#
+# RTTOV installation:
+# RTTOV_VERSION   RTTOV version number
+# RTTOVDIR        root directory for RTTOV binaries, libraries, modules, includes
+
+# Compiler:
+# FC       compiler command name
+# FFLAGS   compiler specific flags ( -I$(RTTOVDIR)/mod -I$(RTTOVDIR)/include are mandatory)
+
+# Linker:
+#   if RTTOV was compiled with HDF5 library
+#     HDF5_PREFIX    directory for HDF library
+#     LDFLAGS_HDF5   HDF5 flags for linker
+#     Add librttov11_hdf.a to LIBS and LLIBS
+#   else
+#     NETCDF_PREFIX  directory for NetCDF library
+#     LDFLAGS_NETCDF NetCDF flags for linker (may require -lnetcdff for NetCDF v4)
+#
+# LDFLAGS_ARCH      flags for linker
+
+# Options for output binary files
+# BINDIR    directory to store the binary file
+# EXT_BIN   extension of the binary file
+
+
+RTTOVDIR=../../
+
+FC=gfortran
+FFLAGS= -I$(RTTOVDIR)/mod -I$(RTTOVDIR)/include -fPIC -O3 -fopenmp -ffree-line-length-none
+
+LDFLAGS_ARCH=-fopenmp
+
+# If RTTOV was compiled with HDF5
+# HDF5_PREFIX=/path/to/hdf/installation
+# LDFLAGS_HDF5=-L$(HDF5_PREFIX)/lib -lhdf5hl_fortran -lhdf5_hl -lhdf5_fortran -lhdf5 -lz
+
+# Else if RTTOV was NOT compiled with HDF5
+# NETCDF_PREFIX=/path/to/netcdf/installation
+# LDFLAGS_NETCDF=-L$(NETCDF_PREFIX)/lib -lnetcdf
+
+RTTOV_VERSION=11
+EXT_BIN=.exe
+EXT_OBJ=.o
+EXT_LIB=.a
+OBJDIR=$(RTTOVDIR)/obj
+BINDIR=$(HOME)
+
+
+#### Do not edit beyond this line (except to add HDF library) ####
+
+LIBDIR=$(RTTOVDIR)/lib
+LIBS=\
+  $(LIBDIR)/librttov$(RTTOV_VERSION)_brdf_atlas$(EXT_LIB) \
+  $(LIBDIR)/librttov$(RTTOV_VERSION)_emis_atlas$(EXT_LIB) \
+  $(LIBDIR)/librttov$(RTTOV_VERSION)_other$(EXT_LIB) \
+  $(LIBDIR)/librttov$(RTTOV_VERSION)_coef_io$(EXT_LIB) \
+  $(LIBDIR)/librttov$(RTTOV_VERSION)_parallel$(EXT_LIB) \
+  $(LIBDIR)/librttov$(RTTOV_VERSION)_main$(EXT_LIB)
+
+LLIBS=-L$(LIBDIR) \
+  -lrttov$(RTTOV_VERSION)_brdf_atlas \
+  -lrttov$(RTTOV_VERSION)_emis_atlas \
+  -lrttov$(RTTOV_VERSION)_other \
+  -lrttov$(RTTOV_VERSION)_coef_io \
+  -lrttov$(RTTOV_VERSION)_parallel \
+  -lrttov$(RTTOV_VERSION)_main
+
+
+# With HDF library:
+#LIBS=\
+#  $(LIBDIR)/librttov$(RTTOV_VERSION)_brdf_atlas$(EXT_LIB) \
+#  $(LIBDIR)/librttov$(RTTOV_VERSION)_emis_atlas$(EXT_LIB) \
+#  $(LIBDIR)/librttov$(RTTOV_VERSION)_other$(EXT_LIB) \
+#  $(LIBDIR)/librttov$(RTTOV_VERSION)_coef_io$(EXT_LIB) \
+#  $(LIBDIR)/librttov$(RTTOV_VERSION)_hdf$(EXT_LIB) \
+#  $(LIBDIR)/librttov$(RTTOV_VERSION)_parallel$(EXT_LIB) \
+#  $(LIBDIR)/librttov$(RTTOV_VERSION)_main$(EXT_LIB)
+#
+#LLIBS=-L$(LIBDIR) \
+#  -lrttov$(RTTOV_VERSION)_brdf_atlas \
+#  -lrttov$(RTTOV_VERSION)_emis_atlas \
+#  -lrttov$(RTTOV_VERSION)_other \
+#  -lrttov$(RTTOV_VERSION)_coef_io \
+#  -lrttov$(RTTOV_VERSION)_hdf \
+#  -lrttov$(RTTOV_VERSION)_parallel \
+#  -lrttov$(RTTOV_VERSION)_main
+
+
+all:$(BINDIR)/example_atlas_fwd$(EXT_BIN)
+
+
+clean:
+	rm -f $(OBJDIR)/example_atlas_fwd$(EXT_OBJ)
+	rm -f $(BINDIR)/example_atlas_fwd$(EXT_BIN)
+
+
+$(OBJDIR)/example_atlas_fwd$(EXT_OBJ): example_atlas_fwd.F90
+	$(FC) $(FFLAGS) -c example_atlas_fwd.F90 -o $(OBJDIR)/example_atlas_fwd$(EXT_OBJ)
+	
+
+
+$(BINDIR)/example_atlas_fwd$(EXT_BIN): $(OBJDIR)/example_atlas_fwd$(EXT_OBJ) $(LIBS)
+	$(FC) -o $(BINDIR)/example_atlas_fwd$(EXT_BIN) \
+	$(OBJDIR)/example_atlas_fwd$(EXT_OBJ) \
+	$(LLIBS)  \
+	$(LDFLAGS_NETCDF) $(LDFLAGS_HDF5) $(LDFLAGS_ARCH)
+
+
+
+
+

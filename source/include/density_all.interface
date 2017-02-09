@@ -1,0 +1,15 @@
+Interface
+subroutine density_all (i_type, ll_liu_dda, liu_habit, dens, f_ghz, Dinmeters, &
+  & density, a, b, gamma1plusb)
+use parkind1, only: jprb, jpim, jplm
+implicit none
+integer (kind=jpim), intent ( in) :: i_type         ! Hydrometeor type
+logical (kind=jplm), intent ( in) :: ll_liu_dda     ! Liu DDA shapes are being used
+integer (kind=jpim), intent ( in) :: liu_habit      ! defined in scatdb.c
+integer (kind=jpim), intent ( in) :: dens           ! Choice of density parametrisation
+real    (kind=jprb), intent ( in) :: f_ghz          ! Frequency, [GHz]
+real    (kind=jprb), intent ( in), optional :: Dinmeters(:)      ! Diameter or maximum dimension [m]
+real    (kind=jprb), intent (out), optional :: density(:)        ! Density,   [g/m3]
+real    (kind=jprb), intent (out), optional :: a, b, gamma1plusb ! mass = aD^b [SI]
+End Subroutine
+End Interface

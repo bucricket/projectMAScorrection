@@ -1,0 +1,33 @@
+Interface
+SUBROUTINE rttov_setpredictors_9_tl( &
+            & opts,          &
+            & prof,          &
+            & prof_tl,       &
+            & geom,          &
+            & ray_path,      &
+            & ray_path_tl,   &
+            & coef_pccomp,   &
+            & coef,          &
+            & predictors,    &
+            & predictors_tl)
+  USE rttov_types, ONLY :  &
+       & rttov_coef,        &
+       & rttov_options,     &
+       & rttov_coef_pccomp, &
+       & profile_Type,      &
+       & geometry_Type,     &
+       & rttov_path_pred
+  USE parkind1, ONLY : jprb
+  IMPLICIT NONE
+  TYPE(rttov_options    ), INTENT(IN)    :: opts
+  TYPE(profile_Type     ), INTENT(IN)    :: prof(:)         ! profile (ppmv dry)
+  TYPE(profile_Type     ), INTENT(IN)    :: prof_tl(SIZE(prof))
+  TYPE(geometry_Type    ), INTENT(IN)    :: geom(SIZE(prof))
+  REAL(jprb             ), INTENT(IN)    :: ray_path(prof(1)%nlayers,SIZE(prof))
+  REAL(jprb             ), INTENT(IN)    :: ray_path_tl(prof(1)%nlayers,SIZE(prof))
+  TYPE(rttov_coef_pccomp), INTENT(IN)    :: coef_pccomp
+  TYPE(rttov_coef       ), INTENT(IN)    :: coef
+  TYPE(rttov_path_pred  ), INTENT(IN)    :: predictors
+  TYPE(rttov_path_pred  ), INTENT(INOUT) :: predictors_tl      ! in because of mem allocation
+End Subroutine
+End Interface

@@ -1,0 +1,36 @@
+Interface
+SUBROUTINE rttov_setpredictors_7_tl( &
+            & opts,          &
+            & prof,          &
+            & prof_tl,       &
+            & geom,          &
+            & coef,          &
+            & aux,           &
+            & aux_tl,        &
+            & predictors,    &
+            & predictors_tl, &
+            & raytracing,    &
+            & raytracing_tl)
+  USE rttov_types, ONLY :  &
+       & rttov_coef,      &
+       & rttov_options,   &
+       & profile_type,    &
+       & geometry_type,   &
+       & profile_aux,     &
+       & rttov_path_pred, &
+       & raytracing_type
+  USE rttov_math_mod
+  IMPLICIT NONE
+  TYPE(rttov_options  ), INTENT(IN)    :: opts
+  TYPE(profile_type   ), INTENT(IN)    :: prof(:)          ! profile (ppmv dry)
+  TYPE(profile_type   ), INTENT(IN)    :: prof_tl(SIZE(prof))
+  TYPE(rttov_coef     ), INTENT(IN)    :: coef
+  TYPE(geometry_type  ), INTENT(IN)    :: geom(SIZE(prof))
+  TYPE(rttov_path_pred), INTENT(IN)    :: predictors
+  TYPE(rttov_path_pred), INTENT(INOUT) :: predictors_tl
+  TYPE(raytracing_type), INTENT(IN)    :: raytracing
+  TYPE(raytracing_type), INTENT(IN)    :: raytracing_tl
+  TYPE(profile_aux    ), INTENT(IN)    :: aux
+  TYPE(profile_aux    ), INTENT(IN)    :: aux_tl
+End Subroutine
+End Interface

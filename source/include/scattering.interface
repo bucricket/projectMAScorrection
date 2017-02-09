@@ -1,0 +1,13 @@
+Interface
+subroutine scattering ( dia_froz, temp, wavelength, f_ghz, i_type, dens, &
+  & ll_liu_dda, liu_habit, is_loaded, q_ext, q_sct, q_asm, q_bsct)
+use parkind1, only: jprb, jpim
+use mod_mie,  only: n_dia
+implicit none
+real (kind=jprb),    intent (in   ) :: temp, wavelength, f_ghz, dia_froz(n_dia)
+integer (kind=jpim), intent (in   ) :: i_type, dens, liu_habit
+integer (kind=jpim), intent (inout) :: is_loaded
+logical,             intent (in   ) :: ll_liu_dda
+real (kind=jprb),    intent (  out) :: q_ext(n_dia), q_sct(n_dia), q_asm(n_dia), q_bsct(n_dia)
+End Subroutine
+End Interface

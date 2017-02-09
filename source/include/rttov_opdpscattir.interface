@@ -1,0 +1,52 @@
+Interface
+SUBROUTINE rttov_opdpscattir( &
+            & nlayers,                      &
+            & chanprof,                     &
+            & opts,                         &
+            & aux,                          &
+            & profiles,                     &
+            & profiles_dry,                 &
+            & aer_opt_param,                &
+            & cld_opt_param,                &
+            & dosolar,                      &
+            & solar,                        &
+            & coef,                         &
+            & coef_scatt_ir,                &
+            & raytracing,                   &
+            & transmission_scatt_ir,        &
+            & transmission_scatt_ir_stream, &
+            & optp,                         &
+            & ircld)
+  USE rttov_types, ONLY :  &
+       & rttov_chanprof,             &
+       & rttov_options,              &
+       & rttov_coef,                 &
+       & profile_Type,               &
+       & rttov_opt_param,            &
+       & raytracing_type,            &
+       & transmission_scatt_ir_type, &
+       & rttov_coef_scatt_ir,        &
+       & rttov_optpar_ir,            &
+       & profile_aux,                &
+       & ircld_type
+  USE parkind1, ONLY : jpim, jplm
+  IMPLICIT NONE
+  INTEGER(KIND=jpim)              , INTENT(IN)    :: nlayers
+  TYPE(rttov_chanprof            ), INTENT(IN)    :: chanprof(:)
+  TYPE(rttov_options )            , INTENT(IN)    :: opts
+  TYPE(profile_type              ), INTENT(IN)    :: profiles(:)
+  TYPE(profile_type              ), INTENT(IN)    :: profiles_dry(SIZE(profiles))
+  TYPE(rttov_opt_param), OPTIONAL , INTENT(IN)    :: aer_opt_param
+  TYPE(rttov_opt_param), OPTIONAL , INTENT(IN)    :: cld_opt_param
+  LOGICAL(KIND=jplm)              , INTENT(IN)    :: dosolar
+  LOGICAL(KIND=jplm)              , INTENT(IN)    :: solar(SIZE(chanprof))
+  TYPE(profile_aux               ), INTENT(INOUT) :: aux
+  TYPE(rttov_coef                ), INTENT(IN)    :: coef
+  TYPE(transmission_scatt_ir_type), INTENT(INOUT) :: transmission_scatt_ir
+  TYPE(transmission_scatt_ir_type), INTENT(INOUT) :: transmission_scatt_ir_stream
+  TYPE(rttov_coef_scatt_ir       ), INTENT(IN)    :: coef_scatt_ir
+  TYPE(rttov_optpar_ir           ), INTENT(IN)    :: optp
+  TYPE(ircld_type                ), INTENT(INOUT) :: ircld
+  TYPE(raytracing_type           ), INTENT(INOUT) :: raytracing
+End Subroutine
+End Interface

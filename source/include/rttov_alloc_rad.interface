@@ -1,0 +1,21 @@
+Interface
+SUBROUTINE rttov_alloc_rad( &
+            & err,       &
+            & nchannels, &
+            & radiance,  &
+            & nlayers,   &
+            & asw,       &
+            & radiance2, &
+            & init)
+  USE rttov_types, ONLY : radiance_type, radiance2_type
+  USE parkind1, ONLY : jpim, jplm
+  IMPLICIT NONE
+  INTEGER(KIND=jpim)  , INTENT(OUT)             :: err       ! return code
+  INTEGER(KIND=jpim)  , INTENT(IN)              :: nchannels
+  INTEGER(KIND=jpim)  , INTENT(IN)              :: nlayers
+  TYPE(radiance_type) , INTENT(INOUT)           :: radiance  ! primary radiances
+  INTEGER(KIND=jpim)  , INTENT(IN)              :: asw       ! 1=allocate, 0=deallocate
+  TYPE(radiance2_type), OPTIONAL, INTENT(INOUT) :: radiance2 ! secondary radiances
+  LOGICAL(KIND=jplm)  , OPTIONAL, INTENT(IN)    :: init
+End Subroutine
+End Interface

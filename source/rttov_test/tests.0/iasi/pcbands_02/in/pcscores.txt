@@ -1,0 +1,6 @@
+&pcscores
+  npcscores = 165
+  ipcreg = 4
+  ipcbnd = 2
+/
+

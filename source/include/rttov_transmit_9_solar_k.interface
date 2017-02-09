@@ -1,0 +1,63 @@
+Interface
+SUBROUTINE rttov_transmit_9_solar_k( &
+            & addaerosl,                      &
+            & addclouds,                      &
+            & nlayers,                        &
+            & chanprof,                       &
+            & solar,                          &
+            & aux,                            &
+            & aux_k,                          &
+            & coef,                           &
+            & raytracing,                     &
+            & raytracing_k,                   &
+            & ircld,                          &
+            & opdp_path,                      &
+            & opdp_path_k,                    &
+            & path2,                          &
+            & path1,                          &
+            & transmission,                   &
+            & transmission_k,                 &
+            & transmission_aux,               &
+            & transmission_aux_k,             &
+            & transmission_scatt_ir,          &
+            & transmission_scatt_ir_k,        &
+            & transmission_scatt_ir_stream,   &
+            & transmission_scatt_ir_stream_k)
+  USE rttov_types, ONLY :  &
+       & rttov_chanprof,             &
+       & rttov_coef,                 &
+       & opdp_path_type,             &
+       & rttov_path_traj_trans,      &
+       & transmission_type,          &
+       & transmission_type_aux,      &
+       & transmission_scatt_ir_type, &
+       & profile_aux,                &
+       & ircld_type,                 &
+       & raytracing_type
+  USE parkind1, ONLY : jpim, jplm
+  IMPLICIT NONE
+  LOGICAL(KIND=jplm), INTENT(IN)    :: addaerosl
+  LOGICAL(KIND=jplm), INTENT(IN)    :: addclouds
+  INTEGER(KIND=jpim)              , INTENT(IN)    :: nlayers
+  TYPE(rttov_chanprof            ), INTENT(IN)    :: chanprof(:)
+  LOGICAL(KIND=jplm)              , INTENT(IN)    :: solar(SIZE(chanprof))
+  TYPE(rttov_coef                ), INTENT(IN)    :: coef
+  TYPE(profile_aux               ), INTENT(IN)    :: aux
+  TYPE(profile_aux               ), INTENT(INOUT) :: aux_k
+  TYPE(ircld_type                ), INTENT(IN)    :: ircld
+  TYPE(opdp_path_type            ), INTENT(IN)    :: opdp_path
+  TYPE(opdp_path_type            ), INTENT(INOUT) :: opdp_path_k
+  TYPE(rttov_path_traj_trans     ), INTENT(IN)    :: path2
+  TYPE(rttov_path_traj_trans     ), INTENT(IN)    :: path1
+  TYPE(transmission_type         ), INTENT(IN)    :: transmission
+  TYPE(transmission_type         ), INTENT(INOUT) :: transmission_k
+  TYPE(transmission_type_aux     ), INTENT(IN)    :: transmission_aux
+  TYPE(transmission_type_aux     ), INTENT(INOUT) :: transmission_aux_k
+  TYPE(raytracing_type           ), INTENT(IN)    :: raytracing
+  TYPE(raytracing_type           ), INTENT(INOUT) :: raytracing_k
+  TYPE(transmission_scatt_ir_type), INTENT(IN)    :: transmission_scatt_ir
+  TYPE(transmission_scatt_ir_type), INTENT(INOUT) :: transmission_scatt_ir_k
+  TYPE(transmission_scatt_ir_type), INTENT(IN)    :: transmission_scatt_ir_stream
+  TYPE(transmission_scatt_ir_type), INTENT(INOUT) :: transmission_scatt_ir_stream_k
+End Subroutine
+End Interface

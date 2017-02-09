@@ -1,0 +1,13 @@
+FC=ifort
+FC77=ifort
+CC=gcc
+LDFLAGS_ARCH=
+CFLAGS_ARCH=
+FFLAGS_ARCH=-fPIC -O3 -fp-model source
+AR=ar r
+
+# -fp-model source ensures more consistent floating point results
+
+F2PY=f2py --fcompiler=intelem
+F2PYFLAGS_ARCH="-fPIC"
+F2PYLDFLAGS_ARCH=

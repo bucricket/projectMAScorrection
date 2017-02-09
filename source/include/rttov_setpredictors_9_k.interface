@@ -1,0 +1,38 @@
+Interface
+SUBROUTINE rttov_setpredictors_9_k( &
+            & opts,         &
+            & chanprof,     &
+            & nlayers,      &
+            & prof,         &
+            & prof_k,       &
+            & geom,         &
+            & ray_path,     &
+            & ray_path_k,   &
+            & coef_pccomp,  &
+            & coef,         &
+            & predictors,   &
+            & predictors_k)
+  USE rttov_types, ONLY :  &
+       & rttov_chanprof,    &
+       & rttov_coef,        &
+       & rttov_options,     &
+       & rttov_coef_pccomp, &
+       & profile_Type,      &
+       & geometry_Type,     &
+       & rttov_path_pred
+  USE parkind1, ONLY : jpim, jprb
+  IMPLICIT NONE
+  TYPE(rttov_options)    , INTENT(IN)    :: opts
+  TYPE(rttov_chanprof   ), INTENT(IN)    :: chanprof(:)
+  INTEGER(KIND=jpim)     , INTENT(IN)    :: nlayers
+  TYPE(profile_Type     ), INTENT(IN)    :: prof(:)         ! profile (ppmv dry)
+  TYPE(profile_Type     ), INTENT(INOUT) :: prof_k(SIZE(chanprof))
+  TYPE(geometry_Type    ), INTENT(IN)    :: geom(SIZE(prof))
+  REAL(jprb             ), INTENT(IN)    :: ray_path(prof(1)%nlayers,SIZE(prof))
+  REAL(jprb             ), INTENT(INOUT) :: ray_path_k(prof(1)%nlayers,SIZE(chanprof))
+  TYPE(rttov_coef_pccomp), INTENT(IN)    :: coef_pccomp
+  TYPE(rttov_coef       ), INTENT(IN)    :: coef
+  TYPE(rttov_path_pred  ), INTENT(IN)    :: predictors
+  TYPE(rttov_path_pred  ), INTENT(INOUT) :: predictors_k
+End Subroutine
+End Interface

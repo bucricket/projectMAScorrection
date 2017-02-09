@@ -1,0 +1,23 @@
+Interface
+SUBROUTINE rttov_aer_clim_prof( &
+        P,                      &
+        T,                      &
+        Q,                      &
+        LEVSURF,                &
+        LATITUDE,               &
+        ELEVATION,              &
+        SCALEFACTOR,            &
+        AERPROF)
+  USE parkind1, ONLY : jprb, jpim
+  USE rttov_const, ONLY: naer_max
+  IMPLICIT NONE
+  REAL(jprb),    INTENT(IN)  :: P(:)                           ! Input pressure profile (hPa)
+  REAL(jprb),    INTENT(IN)  :: T(SIZE(p))                     ! Input temperature profile (K)
+  REAL(jprb),    INTENT(IN)  :: Q(SIZE(p))                     ! Input water vapour profile (ppmv)
+  INTEGER(jpim), INTENT(IN)  :: LEVSURF                        ! Surface level
+  REAL(jprb),    INTENT(IN)  :: LATITUDE                       ! Latitude for profiles
+  REAL(jprb),    INTENT(IN)  :: ELEVATION                      ! Surface elevation (km)
+  REAL(jprb),    INTENT(IN)  :: SCALEFACTOR                    ! Factor by which to scale profiles
+  REAL(jprb),    INTENT(OUT) :: AERPROF(SIZE(p)-1,10,naer_max) ! Output aerosol profiles (nlayer, nclim, naer_max)
+End Subroutine
+End Interface

@@ -1,0 +1,4 @@
+&aerosli
+  idg = 4
+  ish = 2
+/

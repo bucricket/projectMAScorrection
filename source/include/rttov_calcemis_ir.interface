@@ -1,0 +1,32 @@
+Interface
+SUBROUTINE rttov_calcemis_ir( &
+            & profiles,    &
+            & geometry,    &
+            & coef,        &
+            & addpc,       &
+            & coef_pccomp, &
+            & thermal,     &
+            & chanprof,    &
+            & calcemis,    &
+            & emissivity,  &
+            & err)
+  USE rttov_types, ONLY :  &
+       & rttov_chanprof,    &
+       & rttov_coef,        &
+       & rttov_coef_pccomp, &
+       & profile_type,      &
+       & geometry_type
+  USE parkind1, ONLY : jprb, jpim, jplm
+  IMPLICIT NONE
+  LOGICAL(KIND=jplm)     , INTENT(IN)    :: addpc
+  TYPE(rttov_chanprof   ), INTENT(IN)    :: chanprof(:)
+  TYPE(profile_type     ), INTENT(IN)    :: profiles(:)
+  TYPE(geometry_type    ), INTENT(IN)    :: geometry(:)
+  TYPE(rttov_coef       ), INTENT(IN)    :: coef
+  TYPE(rttov_coef_pccomp), INTENT(IN)    :: coef_pccomp
+  LOGICAL(KIND=jplm)     , INTENT(IN)    :: thermal(SIZE(chanprof))
+  LOGICAL(KIND=jplm)     , INTENT(IN)    :: calcemis(SIZE(chanprof))
+  REAL(KIND=jprb)        , INTENT(INOUT) :: emissivity(SIZE(chanprof))
+  INTEGER(KIND=jpim)     , INTENT(OUT)   :: err
+End Subroutine
+End Interface

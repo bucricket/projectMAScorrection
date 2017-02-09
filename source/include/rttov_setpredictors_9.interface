@@ -1,0 +1,30 @@
+Interface
+SUBROUTINE rttov_setpredictors_9( &
+            & opts,        &
+            & prof,        &
+            & geom,        &
+            & ray_path,    &
+            & coef_pccomp, &
+            & coef,        &
+            & pred_info,   &
+            & predictors)
+  USE rttov_types, ONLY :  &
+       & rttov_coef,        &
+       & rttov_options,     &
+       & rttov_coef_pccomp, &
+       & profile_Type,      &
+       & geometry_Type,     &
+       & predictors_Type,   &
+       & rttov_path_pred
+  USE parkind1, ONLY : jprb
+  IMPLICIT NONE
+  TYPE(rttov_options    ), INTENT(IN)    :: opts
+  TYPE(profile_Type     ), INTENT(IN)    :: prof(:)         ! profile (ppmv dry)
+  TYPE(geometry_Type    ), INTENT(IN)    :: geom(SIZE(prof))! geometry
+  REAL(jprb             ), INTENT(IN)    :: ray_path(prof(1)%nlayers,SIZE(prof))
+  TYPE(rttov_coef_pccomp), INTENT(IN)    :: coef_pccomp
+  TYPE(rttov_coef       ), INTENT(IN)    :: coef            ! coefficients
+  TYPE(predictors_Type  ), INTENT(INOUT) :: pred_info       ! predictor structure
+  TYPE(rttov_path_pred  ), INTENT(INOUT) :: predictors      ! predictors
+End Subroutine
+End Interface

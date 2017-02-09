@@ -1,0 +1,13 @@
+Interface
+SUBROUTINE rttov_scale_radiance_inc( &
+            & radiance_inc, &
+            & factor,    &
+            & opts)
+  USE parkind1, ONLY : jprb
+  USE rttov_types, ONLY : radiance_type, rttov_options
+  IMPLICIT NONE
+  TYPE(radiance_type), INTENT(INOUT) :: radiance_inc
+  REAL(KIND=jprb)    , INTENT(IN)    :: factor
+  TYPE(rttov_options), INTENT(IN)    :: opts
+End Subroutine
+End Interface

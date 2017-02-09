@@ -1,0 +1,16 @@
+FC=f90
+FC77=f90
+CC=gcc
+LDFLAGS_ARCH=
+CFLAGS_ARCH=-g
+
+# -xcheck=%all 
+#  %all turns on all the special run-time
+#    stkovf             Detect stack overflow at runtime.
+#    init_local         Perform special initialization of local variables
+FFLAGS_ARCH=-g  -xcheck=%all -Usun 
+
+AR=ar r
+
+FFLAG_MOD=-M
+

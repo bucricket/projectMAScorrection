@@ -1,0 +1,15 @@
+Interface
+subroutine mie_one_temp ( temp, wavelength, f_ghz, i_type, dens, &
+  & psd, regime, ll_melt, ll_dsd, liu_habit, is_loaded, &
+  & ext_tab, ssa_tab, asm_tab, zef_tab)
+use parkind1, only: jprb, jpim
+use mod_mie, only: n_lwc
+implicit none
+real (kind=jprb),    intent(in   ) :: temp, wavelength, f_ghz
+integer (kind=jpim), intent(in   ) :: i_type, liu_habit, dens, psd
+logical,             intent(in   ) :: ll_melt, ll_dsd
+character,           intent(in   ) :: regime
+integer (kind=jpim), intent(inout) :: is_loaded
+real (kind=jprb),    intent(  out) :: ext_tab(n_lwc), ssa_tab(n_lwc), asm_tab(n_lwc), zef_tab(n_lwc)
+End Subroutine
+End Interface

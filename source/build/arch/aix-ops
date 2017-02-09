@@ -1,0 +1,11 @@
+FC=xlf95_r
+FC77=f77
+CC=xlc
+LDFLAGS_ARCH=
+CFLAGS_ARCH=-g
+FFLAGS_ARCH=-O3 -qstrict -qrealsize=8 -qintsize=8 -qlanglvl=95std -g -pg -qextname -qxflag=p6div:p6divmsg -qsuppress=1518-317:1518-234:1501-510:1506-356:1514-008:1514-032:1514-033:1518-256:1518-262:1518-265:1518-266:1518-285:1518-296
+FFLAG_D=-WF,-D
+CPP=/usr/lib/cpp
+AR=ar r
+
+FFLAGS_ARCH_rttov_hdf_mod=-O3 -qstrict -qrealsize=8 -qintsize=8 -g -pg -qextname -qxflag=p6div:p6divmsg -qsuppress=1518-317:1518-234:1501-510:1506-356:1514-008:1514-032:1514-033:1518-256:1518-262:1518-265:1518-266:1518-285:1518-296

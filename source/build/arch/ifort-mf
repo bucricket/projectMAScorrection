@@ -1,0 +1,11 @@
+FC=ifort 
+FC77=ifort 
+CC=gcc
+LDFLAGS_ARCH=-openmp 
+CFLAGS_ARCH=-g 
+FFLAGS_ARCH=-g -fPIC -openmp -openmp-threadprivate compat -fp-model precise -g -O2 -finline-limit=500 -xAVX -vec-report3 
+AR=ar r
+
+F2PY=f2py --fcompiler=intelem
+F2PYFLAGS_ARCH="-fPIC -g"
+F2PYLDFLAGS_ARCH=

@@ -1,0 +1,9 @@
+Interface
+SUBROUTINE RTTOV_BARAN_CALC_PHASE( G, PHANGLE, PHASE)
+USE PARKIND1, ONLY : JPRB
+IMPLICIT NONE
+REAL(KIND=JPRB),INTENT(IN)  :: G          ! Asymetry factor
+REAL(KIND=JPRB),INTENT(IN)  :: PHANGLE(:) ! angles(degrees)
+REAL(KIND=JPRB),INTENT(OUT) :: PHASE(:)   ! phase function
+End Subroutine
+End Interface

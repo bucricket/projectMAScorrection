@@ -1,0 +1,23 @@
+Interface
+SUBROUTINE rttov_setup_brdf_atlas( &
+             &  err,                          &! out
+             &  opts,                         &! in
+             &  imonth,                       &! in
+             &  coefs,                        &! in
+             &  path,                         &! in, optional
+             &  brdf_atlas_single_instrument, &! in, optional
+             &  vn_atlas_ver)                  ! in, optional
+  USE parkind1, ONLY : jpim, jplm
+  USE rttov_types, ONLY : &
+        & rttov_coefs,    &
+        & rttov_options
+  IMPLICIT NONE
+  TYPE(rttov_options), INTENT(IN)          :: opts
+  INTEGER(KIND=jpim), INTENT(IN)           :: imonth       ! month for which atlas data required
+  TYPE(rttov_coefs),   INTENT(IN)          :: coefs        ! RTTOV instrument coefficients
+  CHARACTER(LEN=*),   INTENT(IN), OPTIONAL :: path         ! path to atlas data (if not the default)
+  LOGICAL(KIND=jplm), INTENT(IN), OPTIONAL :: brdf_atlas_single_instrument ! flag to indicate BRDF atlas to be init
+  INTEGER(KIND=jpim), INTENT(IN), OPTIONAL :: vn_atlas_ver ! version of vis/nir atlas to use
+  INTEGER(KIND=jpim), INTENT(OUT)          :: err          ! output error status
+End Subroutine
+End Interface

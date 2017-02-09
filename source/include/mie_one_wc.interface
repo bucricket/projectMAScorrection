@@ -1,0 +1,14 @@
+Interface
+subroutine mie_one_wc ( wavelength, f_ghz, i_type, ll_melt, dia_froz, &
+  & nd, q_ext, q_sct, q_asm, q_bsct, ext, sct, asm, bsct)
+use parkind1, only: jprb, jpim
+use mod_mie,  only: n_dia
+implicit none
+real (kind=jprb),    intent (in   ) :: wavelength, f_ghz
+integer (kind=jpim), intent (in   ) :: i_type
+logical,             intent (in   ) :: ll_melt
+real (kind=jprb),    intent (in   ) :: dia_froz(n_dia), nd(n_dia) 
+real (kind=jprb),    intent (in   ) :: q_ext(n_dia), q_sct(n_dia), q_asm(n_dia), q_bsct(n_dia)
+real (kind=jprb),    intent (  out) :: ext, sct, asm, bsct
+End Subroutine
+End Interface

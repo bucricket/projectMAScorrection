@@ -1,0 +1,9 @@
+Interface
+Subroutine rttov_errorreport (error_status, error_message, name_of_routine)
+  USE parkind1, ONLY : jpim
+  IMPLICIT NONE
+  INTEGER(KIND=jpim),           INTENT(IN) :: error_status    ! Success or fatal
+  CHARACTER(LEN=*),             INTENT(IN) :: error_message   ! Message to output
+  CHARACTER(LEN=*),   OPTIONAL, INTENT(IN) :: name_of_routine ! Routine calling this one
+End Subroutine
+End Interface

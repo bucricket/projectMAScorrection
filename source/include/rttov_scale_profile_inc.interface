@@ -1,0 +1,9 @@
+Interface
+SUBROUTINE rttov_scale_profile_inc(profiles_inc, factor)
+  USE parkind1, ONLY : jprb
+  USE rttov_types, ONLY : profile_Type
+  IMPLICIT NONE
+  TYPE(profile_type), INTENT(INOUT)  :: profiles_inc(:)
+  REAL(KIND=jprb), INTENT(IN)        :: factor
+End Subroutine
+End Interface
