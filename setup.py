@@ -2,23 +2,16 @@
 import subprocess
 import os
 
-
-
-
 prefix  = os.environ.get('PREFIX')
 processDi = os.path.abspath(os.path.join(prefix,os.pardir))
 processDir = os.path.join(processDi,'work')
 binDir = os.path.join(prefix,'bin')
 libDir = os.path.join(processDir,'source','lib')
 srcDir = os.path.join(processDir,'source','src')
+
 #=====write Makefile.local===========
 makeFilename = os.path.join(processDir,'source','build',"Makefile.local")
-
-#hdfFolder = [i for i in os.listdir(libDir) if os.path.isdir(os.path.join(libDir,i)) and \
-#         'hdf5' in i]
-#
-#hdfPath = os.path.join(libDir,hdfFolder[0])
-
+print (makeFilename)
 file = open(makeFilename,"w") 
  
 file.write("HDF5_PREFIX  = %s" % prefix) 
