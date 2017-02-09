@@ -30,7 +30,7 @@ subprocess.call(["../build/rttov_compile.sh"])
 #====moving shared library to bin ===========
 
 
-shutil.move(os.path.join(processDir,'source','bin','rttov_wrapper_f2py.so'),os.path.join(binDir,'rttov_wrapper_f2py.so'))
+shutil.move(os.path.join(os.path.join(processDir,'source','wrapper'),'rttov_wrapper_f2py.so'),os.path.join(binDir,'rttov_wrapper_f2py.so'))
 
 try:
     from setuptools import setup
