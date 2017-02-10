@@ -34,12 +34,12 @@ os.chdir(base)
 
 shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),os.path.join(binDir,'rttov_wrapper_f2py.so'))
 
-try:
-    from setuptools import setup
-    setup_kwargs = {'entry_points': {'console_scripts':['pyrttov=pyrttov.__init__:Rttov']}}
-except ImportError:
-    from distutils.core import setup
-    setup_kwargs = {'scripts': ['bin/pyrttov']}
+#try:
+from setuptools import setup
+#    setup_kwargs = {'entry_points': {'console_scripts':['pyrttov=pyrttov.__init__:Rttov']}}
+#except ImportError:
+#    from distutils.core import setup
+#    setup_kwargs = {'scripts': ['bin/pyrttov']}
 #    
 #from pyrttov import __version__
 
@@ -62,6 +62,6 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Topic :: Scientific/Engineering :: GIS',
     ],  
-    **setup_kwargs
+#    **setup_kwargs
 )
 
