@@ -34,7 +34,7 @@ p = subprocess.Popen(["conda", "info", "--root"],stdout=subprocess.PIPE)
 out = p.communicate()
 condaPath = out[0][:-1]
 
-shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),os.path.join(processDir,'source','bin','rttov_wrapper_f2py.so'))
+shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),os.path.join(processDir,'pyrttov','rttov_wrapper_f2py.so'))
 
 try:
     from setuptools import setup
