@@ -30,7 +30,6 @@ from .rttype import wrapfloat, wrapint, itemIdType
 
 # No automatic exports
 __all__ = []
-__version__ = '0.1.0'
 
 
 class RttovError(Exception):
