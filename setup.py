@@ -32,7 +32,7 @@ subprocess.call(["../build/rttov_compile.sh"])
 
 os.chdir(base)
 
-shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),os.path.join(processDir,'pyrttov','rttov_wrapper_f2py.so'))
+shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),os.path.join(binDir,'rttov_wrapper_f2py.so'))
 
 try:
     from setuptools import setup
@@ -50,8 +50,6 @@ setup(
     author="Mitchell Schull",
     author_email="mitch.schull@noaa.gov",
     packages= ['pyrttov'],
-    package_dir={'pyrttov':'pyrttov'},
-    package_data = {'pyrttov':['rttov_wrapper_f2py.so']},
     platforms='Posix; MacOS X; Windows',
     license='BSD 3-Clause',
     classifiers=[
