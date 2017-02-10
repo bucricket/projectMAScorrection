@@ -34,24 +34,25 @@ p = subprocess.Popen(["conda", "info", "--root"],stdout=subprocess.PIPE)
 out = p.communicate()
 condaPath = out[0][:-1]
 
-shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),os.path.join(condaPath,'bin','rttov_wrapper_f2py.so'))
+shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),os.path.join(binDir,'bin','rttov_wrapper_f2py.so'))
 
 try:
     from setuptools import setup
-    setup_kwargs = {'entry_points': {'console_scripts':['pyrttov=pyrttov.__init__:Rttov']}}
+#    setup_kwargs = {'entry_points': {'console_scripts':['pyrttov=pyrttov.__init__:Rttov']}}
 except ImportError:
     from distutils.core import setup
-    setup_kwargs = {'scripts': ['bin/pyrttov']}
-    
-from pyrttov import __version__
+#    setup_kwargs = {'scripts': ['bin/pyrttov']}
+#    
+#from pyrttov import __version__
 
 setup(
     name="pyrttov",
-    version=__version__,
+    version="0.1.0",
     description="pythonic wrapper for rttov",
     author="Mitchell Schull",
     author_email="mitch.schull@noaa.gov",
     packages= ['pyrttov'],
+    package_data = {'pyrttov':['rttov_wrapper_f2py.so']},
     platforms='Posix; MacOS X; Windows',
     license='BSD 3-Clause',
     classifiers=[
@@ -64,6 +65,6 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Topic :: Scientific/Engineering :: GIS',
     ],  
-    **setup_kwargs
+#    **setup_kwargs
 )
 
