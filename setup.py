@@ -52,6 +52,7 @@ setup(
     author="Mitchell Schull",
     author_email="mitch.schull@noaa.gov",
     packages= ['pyrttov'],
+    package_dir={'pyrttov':'pyrttov'},
     package_data = {'pyrttov':['rttov_wrapper_f2py.so']},
     platforms='Posix; MacOS X; Windows',
     license='BSD 3-Clause',
