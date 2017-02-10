@@ -32,7 +32,7 @@ subprocess.call(["../build/rttov_compile.sh"])
 
 os.chdir(base)
 
-shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),os.path.join(binDir,'rttov_wrapper_f2py.so'))
+shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),os.path.join(prefix,'lib','python2.7','site-packages','rttov_wrapper_f2py.so'))
 
 #try:
 from setuptools import setup
