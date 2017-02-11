@@ -1,7 +1,0 @@
-&angles
-  zenangle     = 0.0
-  azangle      = 90.0
-  sunzenangle  = 70.0
-  sunazangle   = 90.0
-  latitude     = 60.0
-/

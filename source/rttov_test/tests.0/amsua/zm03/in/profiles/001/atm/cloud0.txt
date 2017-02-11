@@ -1,4 +1,0 @@
-&cloud
-  ctp       = 500.
-  cfraction = 0.
-/

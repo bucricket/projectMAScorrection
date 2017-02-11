@@ -1,3 +1,0 @@
-&coef_nml
-  defn%f_coef = 'rtcoef_rttov11/rttov7pred54L/rtcoef_jpss_0_atms.dat'
-/

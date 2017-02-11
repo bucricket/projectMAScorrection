@@ -1,3 +1,0 @@
-&elev
-  elevation = 0.2
-/
