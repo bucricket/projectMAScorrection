@@ -36,7 +36,10 @@ condaPath = out[0][:-1]
 os.chdir(base)
 
 shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),os.path.join(prefix,'lib','python2.7','site-packages','rttov_wrapper_f2py.so'))
-shutil.copyfile(os.path.join(processDir,'source','rtcoef_rttov11','rttov7pred54L','rtcoef_landsat_8_tirs.dat'),os.path.join(condaPath,'share','rttov113','rtcoef_landsat_8_tirs.dat'))
+rttovPath = os.path.join(condaPath,'share','rttov')
+if not os.path.exists(rttovPath):
+    os.makedirs(rttovPath)
+shutil.copyfile(os.path.join(processDir,'source','rtcoef_rttov11','rttov7pred54L','rtcoef_landsat_8_tirs.dat'),os.path.join(rttovPath,'rtcoef_landsat_8_tirs.dat'))
 #try:
 from setuptools import setup
 #    setup_kwargs = {'entry_points': {'console_scripts':['pyrttov=pyrttov.__init__:Rttov']}}
