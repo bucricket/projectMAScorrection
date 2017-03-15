@@ -2,7 +2,6 @@
 import subprocess
 import os
 import shutil
-import wget
 import tarfile
 
 
