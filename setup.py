@@ -2,7 +2,18 @@
 import subprocess
 import os
 import shutil
+import wget
+import tarfile
 
+
+
+def untar(fname, fpath):
+    if (fname.endswith('tar.gz') or fname.endswith('tar.bz') or fname.endswith('tar')):
+        tar = tarfile.open(fname)
+        tar.extractall(path = fpath)
+        tar.close()
+        os.remove(fname)
+        
 base = os.getcwd()
 prefix  = os.environ.get('PREFIX')
 processDi = os.path.abspath(os.path.join(prefix,os.pardir))
@@ -25,6 +36,13 @@ file.close()
 
 
 #=====compile rttov=================
+rttovPath = os.path.join(prefix,'share','rttov')
+os.makedirs(rttovPath)
+rttovEmisPath = os.path.join(rttovPath,'emis_data')
+os.makedirs(rttovEmisPath)
+rttovBRDFPath = os.path.join(rttovPath,'brdf_data')
+os.makedirs(rttovBRDFPath)
+
 os.chdir(srcDir)
 subprocess.call(["../build/rttov_compile.sh"])
 
@@ -35,10 +53,57 @@ condaPath = out[0][:-1]
 
 os.chdir(base)
 
+#======download, untar and move atlases and coefficients=======================
+attempts =0
+while attempts < 5:
+    try:
+        wget.download('https://nwpsaf.eu/downloads/emis_data/uw_ir_emis_atlas_hdf5.tar')
+        break
+    except :
+        attempts += 1
+untar('uw_ir_emis_atlas_hdf5.tar',base)
+source = os.listdir(base)
+for files in source:
+    if files.endswith('.H5'):
+        shutil.move(os.path.join(base,files), os.path.join(rttovEmisPath,files))
+        
+attempts =0
+while attempts < 5:
+    try:        
+        wget.download('https://nwpsaf.eu/downloads/emis_data/uw_ir_emis_atlas_covariances_hdf5.tar')
+        break
+    except :
+        attempts += 1
+untar('uw_ir_emis_atlas_covariances_hdf5.tar',base)
+sourcePath = os.path.join(base,'uw_ir_emis_atlas_covariances_hdf5.tar')
+source = os.listdir(base)
+for files in source:
+    if files.endswith('.H5'):
+        shutil.move(os.path.join(base,files), os.path.join(rttovEmisPath,files))
+        
+wget.download('https://nwpsaf.eu/downloads/emis_data/uw_ir_emis_atlas_angcorr_hdf5.tar')
+untar('uw_ir_emis_atlas_angcorr_hdf5.tar',base)
+sourcePath = os.path.join(base,'uw_ir_emis_atlas_angcorr_hdf5.tar')
+source = os.listdir(base)
+for files in source:
+    if files.endswith('.H5'):
+        shutil.move(os.path.join(base,files), os.path.join(rttovEmisPath,files))
+#=========BRDF=================================================================
+attempts =0
+while attempts < 5:
+    try:     
+        wget.download('https://nwpsaf.eu/site/download/rttov_downloads/brdf_data/cms_brdf_atlas_hdf5.tar')
+        break
+    except :
+        attempts += 1
+untar('cms_brdf_atlas_hdf5.tar',base)
+source = os.listdir(base)
+for files in source:
+    if files.endswith('.H5'):
+        shutil.move(os.path.join(base,files), os.path.join(rttovBRDFPath,files))
+
 shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),os.path.join(prefix,'lib','python2.7','site-packages','rttov_wrapper_f2py.so'))
-rttovPath = os.path.join(prefix,'share','rttov')
-if not os.path.exists(rttovPath):
-    os.makedirs(rttovPath)
+
 shutil.copyfile(os.path.join(processDir,'source','rtcoef_rttov11','rttov7pred54L','rtcoef_landsat_8_tirs.dat'),os.path.join(rttovPath,'rtcoef_landsat_8_tirs.dat'))
 #try:
 from setuptools import setup
