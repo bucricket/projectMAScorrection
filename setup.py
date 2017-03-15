@@ -55,7 +55,7 @@ os.chdir(base)
 
 #======download, untar and move atlases and coefficients=======================
 attempts =0
-while attempts < 5:
+while attempts < 10:
     try:
         wget.download('https://nwpsaf.eu/downloads/emis_data/uw_ir_emis_atlas_hdf5.tar')
         break
