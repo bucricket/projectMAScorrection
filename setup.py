@@ -53,55 +53,6 @@ condaPath = out[0][:-1]
 
 os.chdir(base)
 
-#======download, untar and move atlases and coefficients=======================
-attempts =0
-while attempts < 10:
-    try:
-        wget.download('https://nwpsaf.eu/downloads/emis_data/uw_ir_emis_atlas_hdf5.tar')
-        break
-    except :
-        attempts += 1
-untar('uw_ir_emis_atlas_hdf5.tar',base)
-source = os.listdir(base)
-for files in source:
-    if files.endswith('.H5'):
-        shutil.move(os.path.join(base,files), os.path.join(rttovEmisPath,files))
-        
-attempts =0
-while attempts < 5:
-    try:        
-        wget.download('https://nwpsaf.eu/downloads/emis_data/uw_ir_emis_atlas_covariances_hdf5.tar')
-        break
-    except :
-        attempts += 1
-untar('uw_ir_emis_atlas_covariances_hdf5.tar',base)
-sourcePath = os.path.join(base,'uw_ir_emis_atlas_covariances_hdf5.tar')
-source = os.listdir(base)
-for files in source:
-    if files.endswith('.H5'):
-        shutil.move(os.path.join(base,files), os.path.join(rttovEmisPath,files))
-        
-wget.download('https://nwpsaf.eu/downloads/emis_data/uw_ir_emis_atlas_angcorr_hdf5.tar')
-untar('uw_ir_emis_atlas_angcorr_hdf5.tar',base)
-sourcePath = os.path.join(base,'uw_ir_emis_atlas_angcorr_hdf5.tar')
-source = os.listdir(base)
-for files in source:
-    if files.endswith('.H5'):
-        shutil.move(os.path.join(base,files), os.path.join(rttovEmisPath,files))
-#=========BRDF=================================================================
-attempts =0
-while attempts < 5:
-    try:     
-        wget.download('https://nwpsaf.eu/site/download/rttov_downloads/brdf_data/cms_brdf_atlas_hdf5.tar')
-        break
-    except :
-        attempts += 1
-untar('cms_brdf_atlas_hdf5.tar',base)
-source = os.listdir(base)
-for files in source:
-    if files.endswith('.H5'):
-        shutil.move(os.path.join(base,files), os.path.join(rttovBRDFPath,files))
-
 shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),os.path.join(prefix,'lib','python2.7','site-packages','rttov_wrapper_f2py.so'))
 
 shutil.copyfile(os.path.join(processDir,'source','rtcoef_rttov11','rttov7pred54L','rtcoef_landsat_8_tirs.dat'),os.path.join(rttovPath,'rtcoef_landsat_8_tirs.dat'))
