@@ -6,25 +6,26 @@ import tarfile
 from setuptools import setup
 
 
-
 def untar(fname, fpath):
     if fname.endswith('tar.gz') or fname.endswith('tar.bz') or fname.endswith('tar'):
         tar = tarfile.open(fname)
         tar.extractall(path=fpath)
         tar.close()
         os.remove(fname)
+
+
 base = os.getcwd()
 prefix = os.environ.get('PREFIX')
-processDi = os.path.abspath(os.path.join(prefix,os.pardir))
-processDir = os.path.join(processDi,'work')
-binDir = os.path.join(prefix,'bin')
-libDir = os.path.join(processDir,'source','lib')
-srcDir = os.path.join(processDir,'source','src')
+processDi = os.path.abspath(os.path.join(prefix, os.pardir))
+processDir = os.path.join(processDi, 'work')
+binDir = os.path.join(prefix, 'bin')
+libDir = os.path.join(processDir, 'source', 'lib')
+srcDir = os.path.join(processDir, 'source', 'src')
 
-#=====write Makefile.local===========
-makeFilename = os.path.join(processDir,'source','build',"Makefile.local")
+# =====write Makefile.local===========
+makeFilename = os.path.join(processDir, 'source', 'build', "Makefile.local")
 
-fn = open(makeFilename,"w")
+fn = open(makeFilename, "w")
 
 fn.write("HDF5_PREFIX  = %s\n" % prefix)
 fn.write("FFLAGS_HDF5  = -D_RTTOV_HDF $(FFLAG_MOD)$(HDF5_PREFIX)/include\n")
@@ -33,32 +34,31 @@ fn.write("FFLAGS_EXTERN  = $(FFLAGS_NETCDF)  $(FFLAGS_HDF5)  $(FFLAGS_DRHOOK)\n"
 fn.write("LDFLAGS_EXTERN = $(LDFLAGS_NETCDF) $(LDFLAGS_HDF5) $(LDFLAGS_DRHOOK)")
 fn.close()
 
-
-#=====compile rttov=================
-rttovPath = os.path.join(prefix,'share','rttov')
+# =====compile rttov=================
+rttovPath = os.path.join(prefix, 'share', 'rttov')
 os.makedirs(rttovPath)
-rttovEmisPath = os.path.join(rttovPath,'emis_data')
+rttovEmisPath = os.path.join(rttovPath, 'emis_data')
 os.makedirs(rttovEmisPath)
-rttovBRDFPath = os.path.join(rttovPath,'brdf_data')
+rttovBRDFPath = os.path.join(rttovPath, 'brdf_data')
 os.makedirs(rttovBRDFPath)
 
 os.chdir(srcDir)
 subprocess.call(["../build/rttov_compile.sh"])
 
-#====moving shared library to bin ===========
-p = subprocess.Popen(["conda", "info", "--root"],stdout=subprocess.PIPE)
+# ====moving shared library to bin ===========
+p = subprocess.Popen(["conda", "info", "--root"], stdout=subprocess.PIPE)
 out = p.communicate()
 condaPath = out[0][:-1]
 
 os.chdir(base)
 
-shutil.copyfile(os.path.join(libDir,'rttov_wrapper_f2py.so'),
-                os.path.join(prefix,'lib','python2.7',
-                             'site-packages','rttov_wrapper_f2py.so'))
+shutil.copyfile(os.path.join(libDir, 'rttov_wrapper_f2py.so'),
+                os.path.join(prefix, 'lib', 'python2.7',
+                             'site-packages', 'rttov_wrapper_f2py.so'))
 
-shutil.copyfile(os.path.join(processDir,'source','rtcoef_rttov11',
-                             'rttov7pred54L','rtcoef_landsat_8_tirs.dat'),
-                os.path.join(rttovPath,'rtcoef_landsat_8_tirs.dat'))
+shutil.copyfile(os.path.join(processDir, 'source', 'rtcoef_rttov11',
+                             'rttov7pred54L', 'rtcoef_landsat_8_tirs.dat'),
+                os.path.join(rttovPath, 'rtcoef_landsat_8_tirs.dat'))
 
 setup(
     name="pyrttov",
@@ -80,4 +80,3 @@ setup(
         'Topic :: Scientific/Engineering :: GIS',
     ],
 )
-
