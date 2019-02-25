@@ -44,6 +44,7 @@ os.makedirs(rttovBRDFPath)
 
 os.chdir(srcDir)
 subprocess.call("../build/Makefile.PL RTTOV_HDF=1 RTTOV_F2PY=1", shell=True)
+subprocess.call("make ARCH='gfortran' INSTALLDIR=./ clean", shell=True)
 subprocess.call("make ARCH='gfortran' INSTALLDIR=./", shell=True)
 # subprocess.call(["../build/rttov_compile.sh"])
 
