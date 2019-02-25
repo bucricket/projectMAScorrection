@@ -43,8 +43,8 @@ rttovBRDFPath = os.path.join(rttovPath, 'brdf_data')
 os.makedirs(rttovBRDFPath)
 
 os.chdir(srcDir)
-subprocess.call(["../build/Makefile.PL RTTOV_HDF=1 RTTOV_F2PY=1"])
-subprocess.call(["make ARCH='gfortran' INSTALLDIR=./"])
+subprocess.call("../build/Makefile.PL RTTOV_HDF=1 RTTOV_F2PY=1", shell=True)
+subprocess.call("make ARCH='gfortran' INSTALLDIR=./", shell=True)
 # subprocess.call(["../build/rttov_compile.sh"])
 
 # ====moving shared library to bin ===========
