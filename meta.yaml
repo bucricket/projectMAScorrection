@@ -30,7 +30,7 @@ requirements:
     - python
     - setuptools
 #    - {{ compiler('fortran') }}
-    - gcc
+    - gfortran
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
 
   host:
