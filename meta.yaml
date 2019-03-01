@@ -29,16 +29,14 @@ requirements:
   build:
     - python
     - setuptools
-#    - {{ compiler('fortran') }}
-    - gfortran
+    - {{ compiler('fortran') }}
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
 
   host:
     - python
     - hdf5
-    - h5py >=2.0
+#    - h5py >=2.0
 
-    
   run:
     - python
     - numpy

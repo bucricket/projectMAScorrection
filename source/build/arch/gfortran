@@ -1,12 +1,12 @@
-FC=gfortran
-FC77=gfortran
-CC=gcc
+FC=x86_64-conda_cos6-linux-gnu-gfortran
+FC77=x86_64-conda_cos6-linux-gnu-gfortran
+CC=x86_64-conda_cos6-linux-gnu-gcc
 LDFLAGS_ARCH=
 CFLAGS_ARCH=
 FFLAGS_ARCH=-fPIC -O3 -ffree-line-length-none
 AR=ar r
 
-F2PY=f2py --fcompiler=gnu95
+F2PY=f2py --fcompiler=x86_64-conda_cos6-linux-gnu-gfortran
 F2PYFLAGS_ARCH="-fPIC"
 F2PYLDFLAGS_ARCH=
 
