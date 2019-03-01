@@ -27,10 +27,10 @@ build:
     
 requirements:
   build:
-    - python
     - setuptools
     - {{ compiler('fortran') }}
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+
   host:
     - python
     - hdf5
