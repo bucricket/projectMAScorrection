@@ -1,0 +1,66 @@
+package:
+  name: projectmascorrection
+  version: 0.4.0
+
+source:
+#  path: /home/mschull/python/pyRTTOV_0.2/projectMAScorrection/
+  git_url: https://github.com/bucricket/projectMAScorrection.git
+  
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  number: 0
+  script: 
+
+  entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - landsat-util = landsat-util:main
+    #
+    # Would create an entry point called landsat-util that calls landsat-util.main()
+
+    # - pyrttov=pyrttov.__init__:Rttov
+
+    
+requirements:
+  build:
+    - python
+    - setuptools
+    - {{ compiler('fortran') }}
+    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+  host:
+    - python
+    - hdf5
+    - h5py >=2.0
+
+    
+  run:
+    - python
+    - numpy
+    - hdf5
+
+test:
+  # Python imports
+  imports:
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+  requires:
+
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: 
+  license: CCO
+  summary: 'A tool for atmospheric correction'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
