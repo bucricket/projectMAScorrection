@@ -32,10 +32,8 @@ requirements:
 #    - gcc
 #    - {{ compiler('fortran') }}
 #    - {{ compiler('c') }}
-    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+#    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
     - numpy
-
-  host:
     - python
     - hdf5
     - numpy
