@@ -6,7 +6,7 @@ CFLAGS_ARCH=
 FFLAGS_ARCH=-fPIC -O3 -ffree-line-length-none
 AR=ar r
 
-F2PY=f2py --fcompiler=x86_64-conda_cos6-linux-gnu-gfortran
+F2PY=f2py
 F2PYFLAGS_ARCH="-fPIC"
 F2PYLDFLAGS_ARCH=
 
