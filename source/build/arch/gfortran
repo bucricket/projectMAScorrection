@@ -4,7 +4,7 @@ CC=x86_64-conda_cos6-linux-gnu-gcc
 LDFLAGS_ARCH=
 CFLAGS_ARCH=
 FFLAGS_ARCH=-fPIC -O3 -ffree-line-length-none
-AR=x86_64-conda_cos6-linux-gnu-ar
+AR=x86_64-conda_cos6-linux-gnu-ar r
 
 F2PY=f2py --fcompiler=x86_64-conda_cos6-linux-gnu-f95
 F2PYFLAGS_ARCH="-fPIC"
