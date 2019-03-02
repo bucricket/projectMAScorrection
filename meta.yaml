@@ -29,8 +29,9 @@ requirements:
   build:
     - python
     - setuptools
-    - {{ compiler('fortran') }}
-    - {{ compiler('c') }}
+    - gcc
+#    - {{ compiler('fortran') }}
+#    - {{ compiler('c') }}
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
     - numpy
 
