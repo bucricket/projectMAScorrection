@@ -34,6 +34,6 @@ include $(MAKEFILE_LOCAL)
 
 # default for compiler architecture macro is gfortran
 # any value given on the command line gets higher priority
-ARCH=x86_64-conda_cos6-linux-gnu-gfortran
+ARCH=gfortran
 include $(TOPDIR)/build/arch/$(ARCH)
 
