@@ -65,7 +65,7 @@ shutil.copyfile(os.path.join(processDir, 'source', 'rtcoef_rttov11',
 
 setup(
     name="pyrttov",
-    version="0.1.0",
+    version="0.4.0",
     description="pythonic wrapper for rttov",
     author="Mitchell Schull",
     author_email="mitch.schull@noaa.gov",
