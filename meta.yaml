@@ -29,7 +29,7 @@ requirements:
   build:
     - python
     - setuptools
-#    - gcc
+    - gcc
 #    - {{ compiler('fortran') }}
 #    - {{ compiler('c') }}
 #    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
