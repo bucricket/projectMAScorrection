@@ -27,7 +27,8 @@ makeFilename = os.path.join(processDir, 'source', 'build', "Makefile.local")
 
 fn = open(makeFilename, "w")
 
-fn.write("HDF5_PREFIX  = %s\n" % prefix)
+# fn.write("HDF5_PREFIX  = %s\n" % prefix)
+fn.write("HDF5_PREFIX  = /usr/local/")
 fn.write("FFLAGS_HDF5  = -D_RTTOV_HDF $(FFLAG_MOD)$(HDF5_PREFIX)/include\n")
 fn.write("LDFLAGS_HDF5 = -L$(HDF5_PREFIX)/lib -lhdf5hl_fortran -lhdf5_hl -lhdf5_fortran -lhdf5\n")
 fn.write("FFLAGS_EXTERN  = $(FFLAGS_NETCDF)  $(FFLAGS_HDF5)  $(FFLAGS_DRHOOK)\n")

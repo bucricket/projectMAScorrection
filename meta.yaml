@@ -35,14 +35,14 @@ requirements:
 #    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
     - numpy
     - python
-    - hdf5
+#    - hdf5
     - numpy
 #    - h5py >=2.0
 
   run:
     - python
     - numpy
-    - hdf5
+#    - hdf5
 
 test:
   # Python imports
