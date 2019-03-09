@@ -28,12 +28,12 @@ makeFilename = os.path.join(processDir, 'source', 'build', "Makefile.local")
 fn = open(makeFilename, "w")
 
 # fn.write("HDF5_PREFIX  = %s\n" % prefix)
-fn.write("HDF5_PREFIX  = /usr/local")
-fn.write("FFLAGS_HDF5  = -D_RTTOV_HDF $(FFLAG_MOD)$(HDF5_PREFIX)/include\n")
-fn.write("LDFLAGS_HDF5 = -L$(HDF5_PREFIX)/lib -lhdf5hl_fortran -lhdf5_hl -lhdf5_fortran -lhdf5\n")
-fn.write("FFLAGS_EXTERN  = $(FFLAGS_NETCDF)  $(FFLAGS_HDF5)  $(FFLAGS_DRHOOK)\n")
-fn.write("LDFLAGS_EXTERN = $(LDFLAGS_NETCDF) $(LDFLAGS_HDF5) $(LDFLAGS_DRHOOK)")
-fn.close()
+# fn.write("HDF5_PREFIX  = /usr/local")
+# fn.write("FFLAGS_HDF5  = -D_RTTOV_HDF $(FFLAG_MOD)$(HDF5_PREFIX)/include\n")
+# fn.write("LDFLAGS_HDF5 = -L$(HDF5_PREFIX)/lib -lhdf5hl_fortran -lhdf5_hl -lhdf5_fortran -lhdf5\n")
+# fn.write("FFLAGS_EXTERN  = $(FFLAGS_NETCDF)  $(FFLAGS_HDF5)  $(FFLAGS_DRHOOK)\n")
+# fn.write("LDFLAGS_EXTERN = $(LDFLAGS_NETCDF) $(LDFLAGS_HDF5) $(LDFLAGS_DRHOOK)")
+# fn.close()
 
 # =====compile rttov=================
 rttovPath = os.path.join(prefix, 'share', 'rttov')
@@ -44,10 +44,10 @@ rttovBRDFPath = os.path.join(rttovPath, 'brdf_data')
 os.makedirs(rttovBRDFPath)
 
 os.chdir(srcDir)
-subprocess.call("../build/Makefile.PL RTTOV_HDF=1 RTTOV_F2PY=1", shell=True)
-subprocess.call("make ARCH=gfortran INSTALLDIR=./ clean", shell=True)
-subprocess.call("make ARCH=gfortran INSTALLDIR=./", shell=True)
-# subprocess.call(["../build/rttov_compile.sh"])
+# subprocess.call("../build/Makefile.PL RTTOV_HDF=1 RTTOV_F2PY=1", shell=True)
+# subprocess.call("make ARCH=gfortran INSTALLDIR=./ clean", shell=True)
+# subprocess.call("make ARCH=gfortran INSTALLDIR=./", shell=True)
+subprocess.call(["../build/rttov_compile.sh"])
 
 # ====moving shared library to bin ===========
 p = subprocess.Popen(["conda", "info", "--root"], stdout=subprocess.PIPE)

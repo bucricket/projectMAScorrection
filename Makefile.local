@@ -1,5 +1,98 @@
-HDF5_PREFIX  = /home/mschull/anaconda2/conda-bld/projectmascorrection_1551123718823/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold
+# ------------------------------------------------------------------------
+# Use this file to include external libraries when compiling RTTOV.
+# It is recommended to compile RTTOV with the HDF5 library in which case
+# the NetCDF library is NOT required.
+# Any other external libraries required may also be specified here.
+# ------------------------------------------------------------------------
+
+
+# To compile RTTOV against an external library you must:
+# - specify the path to your own copy of the library in the *_PREFIX
+#   variable below
+# - uncomment one FFLAGS_* line and one LDFLAGS_* line which are
+#   appropriate for your installed library.
+
+# After editing this file run the build/rttov_compile.sh script from within
+# the RTTOV src/ directory to compile RTTOV.
+
+
+# ------------------------------------------------------------------------
+# HDF5 library: for HDF5 coefficient file I/O, emissivity/BRDF atlases,
+#               Python/C/C++ interfaces and RTTOV GUI.
+#
+# NB It is essential to supply the _RTTOV_HDF macro to compile with HDF:
+#    this is done within the FFLAGS_HDF5 specified below. Also, if
+#    compiling manually, from within the src/ directory you must first run:
+# $ ../build/Makefile.PL RTTOV_HDF=1
+# ------------------------------------------------------------------------
+
+HDF5_PREFIX  = /usr/local/
+
+# --- Uncomment one FFLAGS_HDF5 line:
+
+# For xlf on AIX:
+# FFLAGS_HDF5  = -WF,-D_RTTOV_HDF $(FFLAG_MOD)$(HDF5_PREFIX)/include
+
+# For most other compilers:
 FFLAGS_HDF5  = -D_RTTOV_HDF $(FFLAG_MOD)$(HDF5_PREFIX)/include
+
+
+# --- Uncomment one LDFLAGS_HDF5 line:
+
+# In most cases:
 LDFLAGS_HDF5 = -L$(HDF5_PREFIX)/lib -lhdf5hl_fortran -lhdf5_hl -lhdf5_fortran -lhdf5
+
+# But you may find that you must also specify libz:
+# LDFLAGS_HDF5 = -L$(HDF5_PREFIX)/lib -lhdf5hl_fortran -lhdf5_hl -lhdf5_fortran -lhdf5 -lz
+
+
+
+# ------------------------------------------------------------------------
+# NetCDF library: for emissivity/BRDF atlases and Python/C/C++ interfaces.
+#
+# NB If you compile RTTOV with the HDF5 library then RTTOV will expect the
+#    atlas files in HDF5 format and there is NO NEED to compile with NetCDF.
+# ------------------------------------------------------------------------
+
+NETCDF_PREFIX  = path-to-netcdf-install
+
+# --- Uncomment this FFLAGS_NETCDF line:
+
+# FFLAGS_NETCDF  = -I$(NETCDF_PREFIX)/include
+
+
+# --- Uncomment one LDFLAGS_NETCDF line:
+
+# The NetCDF libraries to link depend on the version and build
+# configuration of your NetCDF library. For example:
+
+# For NetCDF v3:
+# LDFLAGS_NETCDF = -L$(NETCDF_PREFIX)/lib -lnetcdf
+
+# For NetCDF v4.1:
+# LDFLAGS_NETCDF = -L$(NETCDF_PREFIX)/lib -lnetcdff -lnetcdf
+
+# For NetCDF v4.2 and later:
+# LDFLAGS_NETCDF = -L$(NETCDF_PREFIX)/lib -lnetcdff
+
+# NB Since NetCDF v4 depends on the HDF5 library you may also need to
+#    compile against the HDF5 library (as above). In this case there is
+#    no point in compiling RTTOV with NetCDF v4: just compile with HDF5
+#    instead.
+
+
+# ------------------------------------------------------------------------
+# Optional: specify other libraries here e.g. DrHook
+# ------------------------------------------------------------------------
+DRHOOK_PREFIX  = path-to-drhook-install
+# FFLAGS_DRHOOK  = -I$(DRHOOK_PREFIX)
+# LDFLAGS_DRHOOK = -L$(DRHOOK_PREFIX) -ldrhook -lmpi_serial
+
+
+# ------------------------------------------------------------------------
+# Include all macros on the following lines:
+# (Does not need editing unless you add more libraries)
+# ------------------------------------------------------------------------
+
 FFLAGS_EXTERN  = $(FFLAGS_NETCDF)  $(FFLAGS_HDF5)  $(FFLAGS_DRHOOK)
 LDFLAGS_EXTERN = $(LDFLAGS_NETCDF) $(LDFLAGS_HDF5) $(LDFLAGS_DRHOOK)
