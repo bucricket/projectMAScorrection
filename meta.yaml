@@ -30,9 +30,9 @@ requirements:
     - python
     - setuptools
 #    - gcc
-#    - {{ compiler('fortran') }}
-#    - {{ compiler('c') }}
-#    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+    - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
     - numpy
     - python
     - hdf5
