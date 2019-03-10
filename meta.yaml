@@ -27,7 +27,7 @@ build:
     
 requirements:
   build:
-    - python
+    - python=2.7*
     - setuptools
 #    - gcc
     - {{ compiler('fortran') }}
@@ -39,7 +39,7 @@ requirements:
 #    - h5py >=2.0
 
   run:
-    - python
+    - python=2.7*
     - numpy
     - hdf5
 
