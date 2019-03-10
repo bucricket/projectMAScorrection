@@ -3,7 +3,7 @@ FC77=x86_64-conda_cos6-linux-gnu-gfortran
 CC=x86_64-conda_cos6-linux-gnu-gcc
 LDFLAGS_ARCH=
 CFLAGS_ARCH=
-FFLAGS_ARCH=-fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -pipe -I$PREFIX/include -fdebug-prefix-map=${SRC_DIR}=/usr/local/src/conda/${PKG_NAME}-${PKG_VERSION} -fdebug-prefix-map=${PREFIX}=/usr/local/src/conda-prefix
+FFLAGS_ARCH=-fopenmp -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -pipe -ffree-line-length-none
 AR=x86_64-conda_cos6-linux-gnu-ar r
 
 F2PY=f2py --fcompiler=x86_64-conda_cos6-linux-gnu-f95
