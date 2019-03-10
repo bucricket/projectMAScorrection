@@ -29,6 +29,7 @@ requirements:
   build:
     - python=2.7*
     - setuptools
+    - numpy
 #    - gcc
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
