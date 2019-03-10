@@ -2,7 +2,7 @@ FC=x86_64-conda_cos6-linux-gnu-gfortran
 FC77=x86_64-conda_cos6-linux-gnu-gfortran
 CC=x86_64-conda_cos6-linux-gnu-gcc
 LDFLAGS_ARCH=-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl
-CFLAGS_ARCH= nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -pipe
+CFLAGS_ARCH=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -pipe
 FFLAGS_ARCH=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -pipe -ffree-line-length-none
 AR=x86_64-conda_cos6-linux-gnu-ar r
 
